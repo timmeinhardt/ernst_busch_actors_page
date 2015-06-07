@@ -7,6 +7,7 @@ window._ = require('lodash.compat')
 require 'angular'
 require 'angular-route'
 require 'angular-resource'
+require 'angular-snapscroll'
 
 #
 # Initialize angularJS app module
@@ -14,17 +15,18 @@ require 'angular-resource'
 app = angular.module 'App', [
   'ngRoute'
   'ngResource'
+  'snapscroll'
 ]
 
 #
 # Register angular components
 #
+app.controller 'AdminPanelController',  require 'controllers/adminPanel'
 app.controller 'HomeController',  require 'controllers/home'  
 
 app.directive 'actors', require 'directives/actors'
 app.directive 'header', require 'directives/header'
 app.directive 'footer', require 'directives/footer'
-app.directive 'adminPanel', require 'directives/adminPanel'
 
 #
 # Setup AngularJS routes
