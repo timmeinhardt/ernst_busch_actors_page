@@ -37,13 +37,23 @@ router.delete '/:_id', (req, res) ->
     res.json resource
 
 i = 0
-n = 20
+n = 12
 while i < n
   Resource.remove {}, ->
     Resource.create {
       name: "Lukas Darnstädt"
-      image: '/uploads/images/actors/lukas_darnstädt.jpg'
+      image: '/uploads/images/actors/lukas_darnstädt.png'
     }, ->
   i++
+
+j = 0
+n = 12
+while j < n
+  Resource.remove {}, ->
+    Resource.create {
+      name: "Klaus Kinski"
+      image: '/uploads/images/actors/klaus_kinski.png'
+    }, ->
+  j++
 
 module.exports = router
