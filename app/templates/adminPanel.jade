@@ -1,0 +1,15 @@
+.admin-wrap
+  h1.admin-title
+    | Admin 
+  form(novalidate='', enctype='multipart/form-data')
+    label(for='name') Name:
+    input(type='text',                      name='name',       ng-model='formResource.name')
+    input.button-save(type='submit', ng-click='saveResource()', value='Save')
+  table
+    tbody
+      tr(ng-repeat="resource in resources")
+        td
+          | {{resource.name}}
+        td
+          button.button-edit(ng-click='editResource(resource)') edit
+          button.button-remove(ng-click='removeResource(resource)') remove

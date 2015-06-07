@@ -1,0 +1,5 @@
+.actors-card-wrap
+  .actors-card(ng-repeat="actor in actors")
+    .actors-card-title
+      | {{actor.name}}
+    img.actors-card-image(ng-src="{{actor.image}}")

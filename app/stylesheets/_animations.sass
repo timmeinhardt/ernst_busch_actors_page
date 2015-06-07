@@ -1,0 +1,237 @@
+.bounce-animation
+  -moz-animation: bounce 2s ease-in-out infinite
+  -webkit-animation: bounce 2s ease-in-out infinite
+  animation: bounce 2s ease-in-out infinite
+
+  @-moz-keyframes bounce
+    0%, 20%, 50%, 80%, 100%
+      -moz-transform: translateY(0)
+      transform: translateY(0)
+    40%
+      -moz-transform: translateY(-25)
+      transform: translateY(-25)
+    60%
+      -moz-transform: translateY(-15px)
+      transform: translateY(-15px)
+
+
+  @-webkit-keyframes bounce
+    0%, 20%, 50%, 80%, 100%
+      -webkit-transform: translateY(0)
+      transform: translateY(0)
+    40%
+      -webkit-transform: translateY(-25)
+      transform: translateY(-25)
+    60%
+      -webkit-transform: translateY(-15px)
+      transform: translateY(-15px)
+
+
+  @keyframes bounce
+    0%, 20%, 50%, 80%, 100%
+      -moz-transform: translateY(0)
+      -ms-transform: translateY(0)
+      -webkit-transform: translateY(0)
+      transform: translateY(0)
+    40%
+      -moz-transform: translateY(-25)
+      -ms-transform: translateY(-25)
+      -webkit-transform: translateY(-25)
+      transform: translateY(-25)
+    60%
+      -moz-transform: translateY(-15px)
+      -ms-transform: translateY(-15px)
+      -webkit-transform: translateY(-15px)
+      transform: translateY(-15px)
+
+
+
+ 
+
+
+.reveal-animation
+  opacity: 0
+  -webkit-animation: reveal 1s ease-in 1 normal forwards
+  -moz-animation: reveal 1s ease-in 1.4 normal forwards
+  -o-animation: reveal 1s ease-in 1 normal forwards
+  animation: reveal 1s ease-in 1 normal forwards
+  @-webkit-keyframes reveal
+    from
+      opacity: 0
+      transform: translateY(80%)
+    to
+      opacity: 1
+      transform: translateY(0%)
+
+
+  @-moz-keyframes reveal
+    from
+      transform: translateY(80%)
+      opacity: 0
+    to
+      transform: translateY(0%)
+      opacity: 1
+
+
+  @-o-keyframes reveal
+    from
+      transform: translateY(80%)
+      opacity: 0
+    to
+      transform: translateY(0%)
+      opacity: 1
+
+
+  @keyframes reveal
+    from
+      transform: translateY(80%)
+      opacity: 0
+    to
+      transform: translateY(0%)
+      opacity: 1
+
+.fadeIn-animation-fromLeft
+  opacity: 0
+  -webkit-animation: left-fade 1.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  -moz-animation: left-fade 1.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  -o-animation: left-fade 1.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  animation: left-fade 1.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+
+.fadeIn-1s
+  -webkit-animation-duration: 1s
+  -moz-animation-duration: 1s
+  -o-animation-duration: 1s
+  animation-duration: 1s
+
+.fadeIn-2s
+  -webkit-animation-duration: 2s
+  -moz-animation-duration: 2s
+  -o-animation-duration: 2s
+  animation-duration: 2s
+
+
+
+.fadeIn-Delay-3s
+  -webkit-animation-delay: 3s
+  -moz-animation-delay: 3s
+  -o-animation-delay: 3s
+  animation-delay: 3s
+
+.fadeIn-Delay-5s
+  -webkit-animation-delay: 5s
+  -moz-animation-delay: 5s
+  -o-animation-delay: 5s
+  animation-delay: 5s
+
+  @-webkit-keyframes left-fade
+    from
+      opacity: 0
+      transform: translateX(-100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+
+  @-moz-keyframes left-fade
+    from
+      opacity: 0
+      transform: translateX(-100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+  @-o-keyframes left-fade
+    from
+      opacity: 0
+      transform: translateX(-100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+  @keyframes left-fade
+    from
+      opacity: 0
+      transform: translateX(-100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+.fadeIn-animation-fromRight
+  opacity: 0
+  -webkit-animation: right-fade 0.7s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  -moz-animation: right-fade 0.7s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  -o-animation: right-fade 0.7s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+  animation: right-fade 0.7s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1 forwards
+
+.fadeIn-1s
+  -webkit-animation-duration: 1s
+  -moz-animation-duration: 1s
+  -o-animation-duration: 1s
+  animation-duration: 1s
+
+.fadeIn-2s
+  -webkit-animation-duration: 2s
+  -moz-animation-duration: 2s
+  -o-animation-duration: 2s
+  animation-duration: 2s
+
+
+
+.fadeIn-Delay-3s
+  -webkit-animation-delay: 3s
+  -moz-animation-delay: 3s
+  -o-animation-delay: 3s
+  animation-delay: 3s
+
+.fadeIn-Delay-5s
+  -webkit-animation-delay: 5s
+  -moz-animation-delay: 5s
+  -o-animation-delay: 5s
+  animation-delay: 5s
+
+  @-webkit-keyframes right-fade
+    from
+      opacity: 0
+      transform: translateX(100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+
+  @-moz-keyframes right-fade
+    from
+      opacity: 0
+      transform: translateX(100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+  @-o-keyframes right-fade
+    from
+      opacity: 0
+      transform: translateX(100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
+
+
+  @keyframes right-fade
+    from
+      opacity: 0
+      transform: translateX(100%)
+
+    to
+      opacity: 1
+      transform: translateX(0%)
