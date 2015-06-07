@@ -28,6 +28,9 @@ app.directive 'actors', require 'directives/actors'
 app.directive 'header', require 'directives/header'
 app.directive 'footer', require 'directives/footer'
 
+app.directive 'backImg', require 'directives/backgroundImg'
+
+
 #
 # Setup AngularJS routes
 #

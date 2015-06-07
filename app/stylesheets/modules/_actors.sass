@@ -17,7 +17,7 @@
 .actors-card-image
   margin:     13px 0
   width:      100px
-  height:     auto
+  height:     100px
   filter:         grayscale(1)
   -webkit-filter: grayscale(1)
   -moz-filter:    grayscale(1)
@@ -28,6 +28,8 @@
   -moz-transition:    all 1s ease-in-out
   -o-transition:      all 1s ease-in-out
   -ms-transition:     all 1s ease-in-out
+  &img
+    object-fit: fill 
   &:hover
     filter:         grayscale(0)
     -webkit-filter: grayscale(0)

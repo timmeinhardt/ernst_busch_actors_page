@@ -2,7 +2,7 @@
   .actors-card(ng-repeat='actor in actors' ng-click='showActorsTheater(actor)')
     .actors-card-title
       | {{actor.name}}
-    img.actors-card-image(ng-src='{{actor.image}}')
+    .actors-card-image(back-img="{{actor.image}}")
 
 .actors-theater-wrap(ng-show='theaterVisible' ng-click='theaterVisible = false')
   .actors-theater(ng-click="$event.stopPropagation()")
