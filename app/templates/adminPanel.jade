@@ -3,7 +3,7 @@
     | Admin 
   form(novalidate='', enctype='multipart/form-data')
     label(for='name') Name:
-    input(type='text',                      name='name',       ng-model='formResource.name')
+    input(type='text', name='name',  ng-model='formResource.name')
     input.button-save(type='submit', ng-click='saveResource()', value='Save')
   table
     tbody

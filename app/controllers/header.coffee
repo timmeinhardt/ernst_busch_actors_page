@@ -11,7 +11,7 @@ class HeaderController
   #
   #
   initScope: ->
-    @$scope.title = "Ernst Busch Jahrgang 2015"
+    @$scope.title = "Ernst-Busch Jahrgang 2015"
     
     @
 
