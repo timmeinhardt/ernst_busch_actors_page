@@ -12,8 +12,14 @@ class ActorsController
   #
   #
   initScope: ->
-    actors = @resource.query {}, =>
+    @resource.query {}, (actors)=>
       @$scope.actors = actors
+    @$scope.showActorsTheater = @showActorsTheater
+
+  showActorsTheater: (actor) =>
+    @$scope.theaterActor   = actor
+    @$scope.theaterVisible = true
+    @
 
 ActorsController.dependencies = [
   '$scope'

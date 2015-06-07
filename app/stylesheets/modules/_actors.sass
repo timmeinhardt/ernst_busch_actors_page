@@ -1,4 +1,4 @@
-.actors-card-wrap
+.actors-wrap
   max-width:   70%
   display:     flex
   flex-wrap:   wrap
@@ -9,11 +9,11 @@
   margin-bottom:  3.5%
   display:        flex
   flex-direction: column
+  cursor:      pointer
+
 .actors-card-title
   font-size:   100%
   font-weight: 500
-  cursor:      pointer
-
 
 .actors-card-image
   margin:     13px 0
@@ -38,3 +38,16 @@
 
 .actors-card-description
   font-size:     0.8rem
+
+.actors-theater-wrap
+  position:           fixed
+  top:                0px
+  left:               0px
+  z-index:            1000
+  width:              100%
+  height:             100%
+  background-color:   rgba(0,0,0,0.8)
+
+.actors-theater
+  width:    30%
+  margin:   0 auto
