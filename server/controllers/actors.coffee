@@ -42,7 +42,7 @@ while i < n
   Resource.remove {}, ->
     Resource.create {
       name: "Lukas Darnstädt"
-      image: '/uploads/images/actors/lukas_darnstädt.png'
+      image: '/uploads/images/actors/lukas_darnstaedt.png'
     }, ->
   i++
 
