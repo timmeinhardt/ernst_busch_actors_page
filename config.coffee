@@ -34,9 +34,6 @@ exports.config =
     jade:
       options:
         pretty: yes
-    static_jade:
-      extension: '.html.jade'
-      asset:     'public'
 
   minify: true
   sourceMaps: false
