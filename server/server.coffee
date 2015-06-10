@@ -17,6 +17,7 @@ mongoose.connect 'mongodb://localhost/ernst-busch-actors'
 app.use bodyParser.json()
 app.use express.static(__dirname + '/../public')
 app.use '/uploads', express.static(__dirname + '/../uploads')
+routes.setup app
 
 env = process.env.NODE_ENV || 'development'
 if env == 'development'
@@ -26,11 +27,8 @@ if env == 'production'
   app.use errorhandler()
   app.use morgan('short')
  
-start = (port, callback)->
-  routes.setup app
-  port = port or process.env.PORT
-
-  server.listen port, callback
+start = (port) ->
+  server.listen port, ->
   console.log 'Express server listening on port %d in %s mode', port, app.settings.env
 
 exports.start = start
