@@ -1,14 +1,14 @@
 'use strict'
 
-mongoose  		= require 'mongoose'
-express 			= require 'express'
-routes 				= require './routes'
-bodyParser 		= require 'body-parser'
-errorhandler 	= require 'errorhandler'
+mongoose      = require 'mongoose'
+express       = require 'express'
+routes        = require './routes'
+bodyParser    = require 'body-parser'
+errorhandler  = require 'errorhandler'
 morgan        = require 'morgan'
 
-app 			= express()
-server 		= require("http").Server(app)
+app       = express()
+server    = require("http").Server(app)
 
 # database
 mongoose.connect 'mongodb://localhost/ernst-busch-actors'
@@ -28,8 +28,8 @@ if env == 'production'
   app.use morgan('short')
  
 start = (port) ->
-  server.listen port, ->
+  server.listen port
   console.log 'Express server listening on port %d in %s mode', port, app.settings.env
 
 exports.start = start
-exports.app 	= app
+exports.app   = app

@@ -7,5 +7,5 @@ server.start port
 
 # dummy export for brunch
 exports.startServer = (port, path, callback) ->
-	callback()
+  callback()
 
