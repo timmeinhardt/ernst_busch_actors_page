@@ -7,7 +7,7 @@ window._ = require('lodash.compat')
 require 'angular'
 require 'angular-route'
 require 'angular-resource'
-require 'angular-snapscroll'
+require 'angular-panel-snap.min'
 
 #
 # Initialize angularJS app module
@@ -15,7 +15,7 @@ require 'angular-snapscroll'
 app = angular.module 'App', [
   'ngRoute'
   'ngResource'
-  'snapscroll'
+  'akreitals.panel-snap'
 ]
 
 #
