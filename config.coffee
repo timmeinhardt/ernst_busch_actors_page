@@ -34,6 +34,8 @@ exports.config =
     jade:
       options:
         pretty: yes
+    sass:
+      mode: 'native'
 
   minify: true
   sourceMaps: false
