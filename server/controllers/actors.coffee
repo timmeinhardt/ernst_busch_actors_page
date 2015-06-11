@@ -43,7 +43,7 @@ while i < n
     Resource.create {
       name: "Lukas Darnstädt"
       image: '/uploads/images/actors/lukas_darnstaedt.png'
-      birthdate: new Date "1990-09-22T00:00:00Z"
+      birthdate: new Date "1990-09-22"
       birthplace: "Hamburg"
       height: "182 cm"
       motherLanguage: "Deutsch"
@@ -61,6 +61,13 @@ while j < n
     Resource.create {
       name: "Klaus Kinski"
       image: '/uploads/images/actors/klaus_kinski.png'
+      birthdate: new Date "1926-09-22"
+      birthplace: "Hölle"
+      height: "182 cm"
+      motherLanguage: "Deutsch"
+      foreignLanguages: "Französisch, Englisch"
+      formalEducation: "Abitur"
+      skills: "Ballern, Ausrasten, Beschimpfen, Hassen, Fechten, Tanzen, Kickboxen, Ballett, Schwimmen, Briefmarken sammeln, Jesus mit der Peitsche in die Fresse schlagen"
     }, ->
   j++
 
