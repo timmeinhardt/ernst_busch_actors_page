@@ -1,6 +1,6 @@
 'use strict'
 
-Resource  = require '../models/actors'
+Resource  = require '../models/events'
 express   = require 'express'
 
 router = express.Router()
@@ -36,32 +36,20 @@ router.delete '/:_id', (req, res) ->
       res.send err
     res.json resource
 
+
 i = 0
-n = 12
+n = 2
 while i < n
   Resource.remove {}, ->
     Resource.create {
-      name: "Lukas Darnstädt"
-      image: '/uploads/images/actors/lukas_darnstaedt.png'
-      birthdate: new Date "1990-09-22T00:00:00Z"
-      birthplace: "Hamburg"
-      height: "182 cm"
-      motherLanguage: "Deutsch"
-      foreignLanguages: "Französisch, Englisch"
-      formalEducation: "Abitur"
-      skills: "Ballern"
-      
+      name: 'Kinski - Früher habe ich alle Menschen gehasst!'
+      image: '/uploads/images/actors/klaus_kinski.png'
+      date:  new Date
+      location: 'hell'
+      description: 'Schlechtes Benehmen halten die Leute 
+                    doch nur deswegen für eine Art Vorrecht, 
+                    weil keiner ihnen aufs Maul haut.'
     }, ->
   i++
-
-j = 0
-n = 12
-while j < n
-  Resource.remove {}, ->
-    Resource.create {
-      name: "Klaus Kinski"
-      image: '/uploads/images/actors/klaus_kinski.png'
-    }, ->
-  j++
 
 module.exports = router

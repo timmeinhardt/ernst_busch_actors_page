@@ -5,5 +5,15 @@
 
 .actors-theater-wrap(ng-show='theaterVisible' ng-click='theaterVisible = false')
   .actors-theater(ng-click="$event.stopPropagation()")
+    div(ng-click='theaterVisible = false') X
     div {{theaterActor.name}}
     img(ng-src='{{theaterActor.image}}')
+    div 
+      p {{theaterActor.birthdate}}
+      p {{theaterActor.birthplace}}
+      p {{theaterActor.height}}
+      p {{theaterActor.motherLanguage}}
+      p {{theaterActor.foreignLanguages}}
+      p {{theaterActor.formalEducation}}
+      p {{theaterActor.skills}}
+
