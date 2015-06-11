@@ -5,15 +5,17 @@
 
 .actors-theater-wrap(ng-show='theaterVisible' ng-click='theaterVisible = false')
   .actors-theater(ng-click="$event.stopPropagation()")
-    div(ng-click='theaterVisible = false') X
-    div {{theaterActor.name}}
+    div.actors-theater-x(ng-click='theaterVisible = false') x
     img(ng-src='{{theaterActor.image}}')
-    div 
-      p {{theaterActor.birthdate}}
-      p {{theaterActor.birthplace}}
-      p {{theaterActor.height}}
-      p {{theaterActor.motherLanguage}}
-      p {{theaterActor.foreignLanguages}}
-      p {{theaterActor.formalEducation}}
-      p {{theaterActor.skills}}
+    .actors-theater-name {{theaterActor.name}}
+    .actors-theater-description
+      p Geburtsdatum: {{theaterActor.birthdate}}
+      p Geburtsort: {{theaterActor.birthplace}}
+      p Größe: {{theaterActor.height}}
+      p Muttersprache: {{theaterActor.motherLanguage}}
+      p Fremdsprachen: {{theaterActor.foreignLanguages}}
+      p Ausbildung: {{theaterActor.formalEducation}}
+      p Besondere Fertigkeiten: {{theaterActor.skills}}
+    .actors-theater-appearances
+      
 

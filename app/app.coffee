@@ -27,6 +27,7 @@ app.controller 'HomeController',  require 'controllers/home'
 app.directive 'actors', require 'directives/actors'
 app.directive 'header', require 'directives/header'
 app.directive 'footer', require 'directives/footer'
+app.directive 'events', require 'directives/events'
 
 app.directive 'backImg', require 'directives/backgroundImg'
 

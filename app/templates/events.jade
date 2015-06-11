@@ -1,0 +1,11 @@
+ak-panel-group.sub-group
+  ak-panel
+    .events-card(ng-repeat='event in events')
+      .events-card-title
+        | {{event.name}}
+      .actors-card-image(back-img="{{event.image}}")
+      .events-card-description
+        | {{event.description}}
+
+
+
