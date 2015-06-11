@@ -7,7 +7,7 @@ actorSchema = new mongoose.Schema
     type: String
     required: true
   image: String
-  birthdate: String
+  birthdate: Date
   birthplace: String
   height: String
   motherLanguage: String

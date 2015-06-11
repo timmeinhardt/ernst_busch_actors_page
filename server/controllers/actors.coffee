@@ -43,6 +43,14 @@ while i < n
     Resource.create {
       name: "Lukas Darnstädt"
       image: '/uploads/images/actors/lukas_darnstaedt.png'
+      birthdate: new Date "1990-09-22T00:00:00Z"
+      birthplace: "Hamburg"
+      height: "182 cm"
+      motherLanguage: "Deutsch"
+      foreignLanguages: "Französisch, Englisch"
+      formalEducation: "Abitur"
+      skills: "Ballern"
+      
     }, ->
   i++
 
