@@ -46,10 +46,15 @@ while i < n
       birthdate: new Date "1990-09-22"
       birthplace: "Hamburg"
       height: "182 cm"
-      motherLanguage: "Deutsch"
+      physique: "Schlank"
+      hairColor: "Dunkelblond"
+      eyeColor:  "Braun"
+      nationality: "Deutsch"
+      dialects:    "Norddeutsch"
+      musicalSkills: "Posaune, Flöte"
+      danceSkills: "Techno"
       foreignLanguages: "Französisch, Englisch"
-      formalEducation: "Abitur"
-      skills: "Ballern"
+      otherSkills: "Ballern"
       
     }, ->
   i++

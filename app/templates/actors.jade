@@ -9,13 +9,43 @@
     img(ng-src='{{theaterActor.image}}')
     .actors-theater-name {{theaterActor.name}}
     .actors-theater-description
-      p Geburtsdatum: {{theaterActor.birthdate}}
-      p Geburtsort: {{theaterActor.birthplace}}
-      p Größe: {{theaterActor.height}}
-      p Muttersprache: {{theaterActor.motherLanguage}}
-      p Fremdsprachen: {{theaterActor.foreignLanguages}}
-      p Ausbildung: {{theaterActor.formalEducation}}
-      p Besondere Fertigkeiten: {{theaterActor.skills}}
-    .actors-theater-appearances
+      p 
+        b Geburtsdatum: 
+        | {{theaterActor.birthdate}}
+      p 
+        b Geburtsort: 
+        | {{theaterActor.birthplace}}
+      p 
+        b Größe: 
+        | {{theaterActor.height}}
+      p 
+        b Figur: 
+        | {{theaterActor.physique}}
+      p 
+        b Haarfarbe: 
+        | {{theaterActor.hairColor}}
+      p 
+        b Augenfarbe: 
+        | {{theaterActor.eyeColor}}
+      p 
+        b Staatsangehörigkeit: 
+        | {{theaterActor.nationality}}
+      p 
+        b Gesang, Instrumente: 
+        | {{theaterActor.musicalSkills}}
+      p 
+        b Fremdsprachen: 
+        | {{theaterActor.foreignLanguages}}
+      p 
+        b Dialekte: 
+        | {{theaterActor.dialects}}
+      p 
+        b Tanz: 
+        | {{theaterActor.danceSkills}}
+      p 
+        b sonstige Fertigkeiten: 
+        | {{theaterActor.otherSkills}}
       
+    .actors-theater-appearances
+
 
