@@ -13,6 +13,8 @@ class HomeController
   initScope: ->
     @
 
-HomeController.dependencies = ['$scope']
+HomeController.dependencies = [
+  '$scope'
+]
 
 module.exports = HomeController

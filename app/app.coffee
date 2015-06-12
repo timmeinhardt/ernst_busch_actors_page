@@ -1,5 +1,7 @@
 'use strict'
 
+pageTitle = "Ernst-Busch Jahrgang 2015"
+
 #
 # Require vendor modules explicitly
 #
@@ -39,11 +41,24 @@ app.config ($routeProvider, $locationProvider) ->
   $locationProvider.html5Mode true
   $routeProvider
     .when '/',
+      title: pageTitle
       controller: 'HomeController'
       template:   require 'templates'
     .when '/admin',
-      controller: 'AdminPanelController'
-      template: require 'templates/adminPanel'
+      title: pageTitle + " Admin"
+      controller: 'AdminController'
+      template: require 'templates/admin'
+
+#
+# Dynamically change browser title for different routes
+#
+app.run [
+  '$location'
+  '$rootScope'
+  ($location, $rootScope) ->
+    $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
+      $rootScope.pageTitle = current.$$route.title
+]
 
 #
 # Callback for document ready
@@ -52,6 +67,3 @@ angular.element(document).ready ->
   angular.bootstrap document, ['App']
 
 module.exports = app
-
-
-
