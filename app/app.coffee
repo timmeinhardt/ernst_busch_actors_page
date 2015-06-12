@@ -21,7 +21,7 @@ app = angular.module 'App', [
 #
 # Register angular components
 #
-app.controller 'AdminPanelController',  require 'controllers/adminPanel'
+app.controller 'AdminController',  require 'controllers/admin'
 app.controller 'HomeController',  require 'controllers/home'  
 
 app.directive 'actors', require 'directives/actors'

@@ -1,4 +1,4 @@
-class AdminPanelController
+class AdminController
 
   #
   #
@@ -40,9 +40,9 @@ class AdminPanelController
   editResource: (resource) =>
     @$scope.formResource = resource
 
-AdminPanelController.dependencies = [
+AdminController.dependencies = [
   '$scope'
   '$resource'
 ]
 
-module.exports = AdminPanelController
+module.exports = AdminController
