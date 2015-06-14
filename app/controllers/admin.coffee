@@ -12,11 +12,13 @@ class AdminController
   #
   #
   initScope: ->
-    resources = @resource.query {}, =>
-      @$scope.resources    
     @$scope.saveResource   = @saveResource
     @$scope.removeResource = @removeResource
     @$scope.editResource   = @editResource
+
+    @resource.query {}, (resources) =>
+      @resources        = resources
+      @$scope.resources = @resources
     @
   
   # TODO: correct error handling
@@ -28,14 +30,16 @@ class AdminController
       resource = new @resource(resource)
 
       resource.$save =>
-        @$scope.resources.push resource
+        @resources.push resource
         @$scope.formResource = {}
 
   # TODO: correct error handling
   removeResource: (resource) =>
     remove = @resource.remove _id: resource._id
     remove.$promise.then (resource) =>
-      @dropResource resource
+      angular.forEach @resources, (r, i) =>
+        if r._id is resource._id
+          @resources.splice(i, 1);
 
   editResource: (resource) =>
     @$scope.formResource = resource

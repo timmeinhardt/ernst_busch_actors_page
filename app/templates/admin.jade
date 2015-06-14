@@ -3,6 +3,10 @@
   form(novalidate='', enctype='multipart/form-data')
     label(for='name') Name:
     input(type='text', name='name',  ng-model='formResource.name')
+    label(for='location') Ort:
+    input(type='text', name='location',  ng-model='formResource.location')
+    label(for='description') Beschreibung:
+    input(type='text', name='description',  ng-model='formResource.description')
     input.button-save(type='submit', ng-click='saveResource()', value='Save')
   table
     tbody
