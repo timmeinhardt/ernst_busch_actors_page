@@ -1,11 +1,13 @@
-.actors-card(ng-repeat='actor in actors' ng-click='showActorsTheater(actor)')
+.actors-card(ng-repeat='(iterator, actor) in actors' ng-click="setTheaterActor(iterator); setTheaterVisibility(true)")
   .actors-card-title
     | {{actor.name}}
   .actors-card-image(back-img="{{actor.image}}")
 
-.actors-theater-wrap(ng-show='theaterVisible' ng-click='theaterVisible = false')
+.actors-theater-wrap(ng-show='isTheaterVisible' ng-click='setTheaterVisibility(false)')
   .actors-theater(ng-click="$event.stopPropagation()")
-    div.actors-theater-x(ng-click='theaterVisible = false') x
+    .actors-theater-close(ng-click='setTheaterVisibility(false)') X
+    .actors-theater-prev(ng-click='setTheaterActor(theaterActor.iterator - 1)') P
+    .actors-theater-next(ng-click='setTheaterActor(theaterActor.iterator + 1)') N
     img(ng-src='{{theaterActor.image}}')
     .actors-theater-name {{theaterActor.name}}
     .actors-theater-description
