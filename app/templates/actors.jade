@@ -8,11 +8,11 @@
 .actors-theater-wrap(ng-show='isTheaterVisible' ng-click='setTheaterVisibility(false)')
   .actors-theater(ng-click="$event.stopPropagation()")
     .actors-theater-close(ng-click='setTheaterVisibility(false)') X
-    .actors-theater-prev
-      img(src='icnLeft.png' ng-click='setTheaterActor(theaterActor.iterator - 1)') 
-    .actors-theater-next
-      img(src='icnRight.png' ng-click='setTheaterActor(theaterActor.iterator + 1)') 
-    img(ng-src='{{theaterActor.image}}')
+    .actors-theater-prev(ng-click='setTheaterActor(theaterActor.iterator - 1)')
+      img(src='icnLeft.png')
+    .actors-theater-next(ng-click='setTheaterActor(theaterActor.iterator + 1)')
+      img(src='icnRight.png')
+    img.actors-theater-image(ng-src='{{theaterActor.image}}')
     .actors-theater-name {{theaterActor.name}}
     .actors-theater-description
       p 
