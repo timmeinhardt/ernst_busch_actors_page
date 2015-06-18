@@ -50,16 +50,17 @@
   color:      black
   position:   relative
   background: rgba(255,255,255, 1)
-  img
-    width:          22rem
-    margin-top:     1.5rem
-    margin-left:    2rem
-    position:       relative
-    filter:         grayscale(1)
-    -webkit-filter: grayscale(1)
-    -moz-filter:    grayscale(1)
-    -o-filter:      grayscale(1)
-    -ms-filter:     grayscale(1)
+
+.actors-theater-image
+  width:          22rem
+  margin-top:     1.5rem
+  margin-left:    2rem
+  position:       relative
+  filter:         grayscale(1)
+  -webkit-filter: grayscale(1)
+  -moz-filter:    grayscale(1)
+  -o-filter:      grayscale(1)
+  -ms-filter:     grayscale(1)
 
 .actors-theater-name
   position:       absolute
@@ -84,28 +85,27 @@
 .actors-theater-prev, .actors-theater-next
   position:   absolute
   top:        1.5rem
-  width:      20px
+  width:      2rem
   height:     94%
-  background: rgba(0,0,0,0.00)
-  
+  background: rgba(0,0,0,0.00)  
+  cursor:     pointer
+
   img
     position:     absolute
     width:        35px
     height:       47px
-    top:          46%
-    margin-left:  -10px
+    top:          45%
     opacity:      0.3
     transition:   all 0.4s ease-in-out
-    cursor:       pointer
-    &:hover
-      opacity:   0.6
-      transform: scale(1.4)
+
+  &:hover > img
+    transform: scale(1.4)
 
 .actors-theater-prev
-  left:       5px
+  left:       0px
 
 .actors-theater-next
-  right:      5px
+  right:      0px
   
 .actors-theater-description
   font-size:   0.8rem
