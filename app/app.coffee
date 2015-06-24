@@ -5,7 +5,7 @@ pageTitle = "Ernst-Busch Jahrgang 2015"
 #
 # Require vendor modules explicitly
 #
-window._ = require('lodash.compat')
+window._ = require('lodash')
 require 'angular'
 require 'angular-route'
 require 'angular-google-maps'
@@ -35,7 +35,7 @@ app.config (uiGmapGoogleMapApiProvider) ->
 #
 app.controller 'AdminController',  require 'controllers/admin'
 app.controller 'MapController',   require 'controllers/map'
-app.controller 'HomeController',  require 'controllers/home'  
+app.controller 'HomeController',  require 'controllers/home'
 
 app.directive 'actors', require 'directives/actors'
 app.directive 'header', require 'directives/header'
