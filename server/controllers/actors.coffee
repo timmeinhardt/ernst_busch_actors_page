@@ -37,7 +37,7 @@ router.delete '/:_id', (req, res) ->
     res.json resource
 
 i = 0
-n = 12
+n = 10
 while i < n
   Resource.remove {}, ->
     Resource.create {
@@ -60,7 +60,7 @@ while i < n
   i++
 
 j = 0
-n = 12
+n = 10
 while j < n
   Resource.remove {}, ->
     Resource.create {
