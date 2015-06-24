@@ -8,6 +8,7 @@ pageTitle = "Ernst-Busch Jahrgang 2015"
 window._ = require('lodash.compat')
 require 'angular'
 require 'angular-route'
+require 'angular-google-maps'
 require 'angular-resource'
 require 'angular-panel-snap.min'
 
@@ -16,18 +17,29 @@ require 'angular-panel-snap.min'
 #
 app = angular.module 'App', [
   'ngRoute'
+  'uiGmapgoogle-maps'
   'ngResource'
   'akreitals.panel-snap'
 ]
+#
+# Configure app module
+#
+app.config (uiGmapGoogleMapApiProvider) ->
+  uiGmapGoogleMapApiProvider.configure
+    key: 'AIzaSyDbW5dqnoeTjb1dETiDs-azrIPnZ9VrUSo'
+    v: '3.17'
+    libraries: 'geometry'
 
 #
 # Register angular components
 #
 app.controller 'AdminController',  require 'controllers/admin'
+app.controller 'MapController',   require 'controllers/map'
 app.controller 'HomeController',  require 'controllers/home'  
 
 app.directive 'actors', require 'directives/actors'
 app.directive 'header', require 'directives/header'
+app.directive 'map', require 'directives/map'
 app.directive 'footer', require 'directives/footer'
 app.directive 'events', require 'directives/events'
 
