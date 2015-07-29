@@ -28,10 +28,11 @@ class ActorsController
     actor = @$scope.actors[iterator]
 
     @$scope.theaterActor          = actor
-    @$scope.theaterActor.iterator = iterator      
+    @$scope.theaterActor.iterator = iterator
     @
 
   setTheaterVisibility: (isVisible) =>
+    @$scope.$root.bodyClass = if isVisible then 'hideOverflow' else ''
     @$scope.isTheaterVisible = isVisible
 
   handleKeyDown: (e) =>
