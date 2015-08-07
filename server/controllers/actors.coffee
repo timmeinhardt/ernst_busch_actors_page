@@ -9,12 +9,12 @@ router.get '/', (req, res) ->
   query = req.query
   if query.hasOwnProperty '_id'
     Resource.findById query._id, (err, resource) ->
-      if err 
+      if err
         res.send err
       res.json [resource]
   else
     Resource.find {query},(err, resources) ->
-      if err 
+      if err
         res.send err
       res.json resources
 
@@ -35,45 +35,5 @@ router.delete '/:_id', (req, res) ->
     if err
       res.send err
     res.json resource
-
-i = 0
-n = 10
-while i < n
-  Resource.remove {}, ->
-    Resource.create {
-      name: "Lukas Darnstädt"
-      image: '/uploads/images/actors/lukas_darnstaedt.png'
-      birthdate: new Date "1990-09-22"
-      birthplace: "Hamburg"
-      height: "182 cm"
-      physique: "Schlank"
-      hairColor: "Dunkelblond"
-      eyeColor:  "Braun"
-      nationality: "Deutsch"
-      dialects:    "Norddeutsch"
-      musicalSkills: "Posaune, Flöte"
-      danceSkills: "Techno"
-      foreignLanguages: "Französisch, Englisch"
-      otherSkills: "Ballern"
-      
-    }, ->
-  i++
-
-j = 0
-n = 10
-while j < n
-  Resource.remove {}, ->
-    Resource.create {
-      name: "Klaus Kinski"
-      image: '/uploads/images/actors/klaus_kinski.png'
-      birthdate: new Date "1926-09-22"
-      birthplace: "Hölle"
-      height: "182 cm"
-      motherLanguage: "Deutsch"
-      foreignLanguages: "Französisch, Englisch"
-      formalEducation: "Abitur"
-      skills: "Ballern, Ausrasten, Beschimpfen, Hassen, Fechten, Tanzen, Kickboxen, Ballett, Schwimmen, Briefmarken sammeln, Jesus mit der Peitsche in die Fresse schlagen"
-    }, ->
-  j++
 
 module.exports = router
