@@ -3,6 +3,6 @@ backgroundImg = ->
     url = attrs.backImg
     element.css
       'background-image': 'url(' + url + ')'
-      'background-size': 'cover'
+      'background-size': 'contain'
 
 module.exports = backgroundImg

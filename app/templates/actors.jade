@@ -1,7 +1,7 @@
 
 .actors-card(ng-repeat='(iterator, actor) in actors' ng-click="setTheaterActor(iterator); setTheaterVisibility(true)")
 
-  .actors-card-image(back-img="{{actor.image}}")
+  .actors-card-image(back-img="{{actor.thumbnail}}")
   .actors-card-title
     | {{actor.name}}
 
@@ -12,46 +12,65 @@
       img(src='icnLeft.png')
     .actors-theater-next(ng-click='setTheaterActor(theaterActor.iterator + 1)')
       img(src='icnRight.png')
-    img.actors-theater-image(ng-src='{{theaterActor.image}}')
+
+    img.actors-theater-image(ng-src='{{theaterActor.images[0].url}}')
+
     .actors-theater-name {{theaterActor.name}}
     .actors-theater-description
-      p 
-        b Geburtsdatum: 
+      p(ng-if='theaterActor.birthdate')
+        b Geboren am
         | {{theaterActor.birthdate}}
-      p 
-        b Geburtsort: 
+      p(ng-if='theaterActor.birthplace')
+        b Aufgewachsen in
         | {{theaterActor.birthplace}}
-      p 
-        b Größe: 
-        | {{theaterActor.height}}
-      p 
-        b Figur: 
-        | {{theaterActor.physique}}
-      p 
-        b Haarfarbe: 
-        | {{theaterActor.hairColor}}
-      p 
-        b Augenfarbe: 
-        | {{theaterActor.eyeColor}}
-      p 
-        b Staatsangehörigkeit: 
+      p(ng-if='theaterActor.nationality')
+        b Nationalität
         | {{theaterActor.nationality}}
-      p 
-        b Gesang, Instrumente: 
-        | {{theaterActor.musicalSkills}}
-      p 
-        b Fremdsprachen: 
+      p(ng-if='theaterActor.height')
+        b Körpergröße
+        | {{theaterActor.height}}
+      p(ng-if='theaterActor.physique')
+        b Statur
+        | {{theaterActor.physique}}
+      p(ng-if='theaterActor.hairColor')
+        b Haarfarbe
+        | {{theaterActor.hairColor}}
+      p(ng-if='theaterActor.eyeColor')
+        b Augenfarbe
+        | {{theaterActor.eyeColor}}
+      p(ng-if='theaterActor.foreignLanguages')
+        b Sprachen
         | {{theaterActor.foreignLanguages}}
-      p 
-        b Dialekte: 
+      p(ng-if='theaterActor.dialects')
+        b Dialekte
         | {{theaterActor.dialects}}
-      p 
-        b Tanz: 
-        | {{theaterActor.danceSkills}}
-      p 
-        b sonstige Fertigkeiten: 
+      p(ng-if='theaterActor.otherSkills')
+        b Besondere Fertigkeiten
         | {{theaterActor.otherSkills}}
-      
-    .actors-theater-appearances
+      p(ng-if='theaterActor.agency')
+        b Agentur
+        | {{theaterActor.agency}}
 
+      .actors-theater-appearances
 
+        .actors-theater-appearance-section(ng-if='theaterActor.roles.length')
+          b.actors-theater-appearance-section-title Gearbeitete Rollen/Dozent
+          .actors-theater-appearance(ng-repeat='role in theaterActor.roles')
+            p {{role.year}}   {{role.title}}
+            p {{role.info}}
+
+        .actors-theater-appearance-section(ng-if='theaterActor.engagements.length')
+          b.actors-theater-appearance-section-title Engagements
+          .actors-theater-appearance(ng-repeat='engagement in theaterActor.engagements')
+            p {{engagement.year}}   {{engagement.title}}
+            p {{engagement.info}}
+
+        .actors-theater-appearance-section(ng-if='theaterActor.movies.length')
+          b.actors-theater-appearance-section-title Film/TV
+          .actors-theater-appearance(ng-repeat='movie in theaterActor.movies')
+            p {{movie.year}}   {{movie.title}}
+            p {{movie.info}}
+
+        p(ng-if='theaterActor.others')
+          b Sonstiges
+          | {{theaterActor.others}}

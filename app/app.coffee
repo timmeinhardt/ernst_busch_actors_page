@@ -21,14 +21,6 @@ app = angular.module 'App', [
   'ngResource'
   'akreitals.panel-snap'
 ]
-#
-# Configure app module
-#
-app.config (uiGmapGoogleMapApiProvider) ->
-  uiGmapGoogleMapApiProvider.configure
-    key: 'AIzaSyDbW5dqnoeTjb1dETiDs-azrIPnZ9VrUSo'
-    v: '3.17'
-    libraries: 'geometry'
 
 #
 # Register angular components
@@ -44,7 +36,7 @@ app.directive 'footer', require 'directives/footer'
 app.directive 'events', require 'directives/events'
 
 app.directive 'backImg', require 'directives/backgroundImg'
-
+app.directive 'fallbackSrc', require 'directives/fallbackSrc'
 
 #
 # Setup AngularJS routes
