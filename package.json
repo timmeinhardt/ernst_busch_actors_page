@@ -10,7 +10,8 @@
   "scripts": {
     "start": "brunch watch --server",
     "postinstall": "bower install",
-    "deploy": "fly"
+    "deploy": "fly",
+    "seed": "coffee seed.coffee"
   },
   "dependencies": {
     "bower": "~1.4",
