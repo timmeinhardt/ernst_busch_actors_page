@@ -36,7 +36,7 @@ app.directive 'footer', require 'directives/footer'
 app.directive 'events', require 'directives/events'
 
 app.directive 'backImg', require 'directives/backgroundImg'
-
+app.directive 'fallbackSrc', require 'directives/fallbackSrc'
 
 #
 # Setup AngularJS routes
