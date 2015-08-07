@@ -1,9 +1,11 @@
 fs = require('fs')
 mongoose = require('mongoose')
 ActorModel = require('./server/models/actors')
-imageUrl = '/uploads/images/actors/'
 
-mongoose.connect 'mongodb://localhost/ernst-busch-actors'
+mongoose.connect 'mongodb://localhost/ernst-busch-actors', (err) ->
+  if err
+    console.log err
+    console.log 'Is mongodb running?'
 
 fs.readFile 'text-katalogwebsite.txt', 'utf8', (err, data) ->
   if err
@@ -38,7 +40,6 @@ parseActors = (data) ->
     # Profile attributes array
     #
     actor.name              = sectionStringArray[0].split('\n').filter(Boolean)[0]
-    actor.thumbnail         = imageUrl + 'thumbnails/' + actor.name.toLowerCase().replace(' ', '_') + '.png'
     actor.birthdate         = sectionStringArray[0].match(/Geboren am (.*)/)[1]
     actor.height            = sectionStringArray[0].match(/Körpergröße (.*)/)[1]
     actor.hairColor         = sectionStringArray[0].match(/Haarfarbe (.*)/)[1]
@@ -46,7 +47,13 @@ parseActors = (data) ->
     actor.foreignLanguages  = sectionStringArray[0].match(/Sprachen (.*)/)[1]
 
     actor.images = []
-    image1 = url: imageUrl + actor.name.toLowerCase().replace(' ', '_') + '_1.png'
+    imageUrl = '/uploads/images/actors/'
+    actorNameUrl = actor.name.toLowerCase().replace(/\ /g, '_').
+      replace('ä','ae').replace('ü','ue').replace('ö','oe').replace('ë','ee')
+
+    actor.thumbnail         = imageUrl + 'thumbnails/' + actorNameUrl + '.jpg'
+
+    image1 = url: imageUrl + actorNameUrl + '_1.jpg'
     actor.images.push image1
 
     actor.birthplace = null
