@@ -1,6 +1,6 @@
 'use strict'
 
-pageTitle = "Ernst-Busch Jahrgang 2015"
+pageTitle = "Ernst-Busch Jahrgang 2016"
 
 #
 # Require vendor modules explicitly
@@ -25,6 +25,7 @@ app = angular.module 'App', [
   'uiGmapgoogle-maps'
   'ngResource'
   'akreitals.panel-snap'
+  'angular-flexslider'
 ]
 
 #
