@@ -39,9 +39,11 @@ class ActorsController
     if @$scope.isTheaterVisible
       iterator = @$scope.theaterActor?.iterator
 
-      if e.keyIdentifier is 'Right'
+      # right arrow
+      if e.keyCode is 39
         iterator++
-      else if e.keyIdentifier is 'Left'
+      # left arrow
+      else if e.keyCode is 37
         iterator--
       else
         return

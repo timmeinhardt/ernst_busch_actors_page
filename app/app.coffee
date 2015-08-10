@@ -1,15 +1,20 @@
 'use strict'
 
-pageTitle = "Ernst-Busch Jahrgang 2015"
+pageTitle = "Ernst-Busch Jahrgang 2016"
 
 #
 # Require vendor modules explicitly
 #
-window._ = require('lodash')
+window._ = require 'lodash'
+window.jQuery = window.$ = require 'jquery'
+require 'jquery.flexslider'
+
 require 'angular'
 require 'angular-route'
 require 'angular-google-maps'
 require 'angular-resource'
+require 'angular-flexslider'
+require 'angular-panel-snap.min'
 require 'angular-panel-snap.min'
 
 #
@@ -20,6 +25,7 @@ app = angular.module 'App', [
   'uiGmapgoogle-maps'
   'ngResource'
   'akreitals.panel-snap'
+  'angular-flexslider'
 ]
 
 #

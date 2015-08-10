@@ -13,7 +13,13 @@
     .actors-theater-next(ng-click='setTheaterActor(theaterActor.iterator + 1)')
       img(src='icnRight.png')
 
-    img.actors-theater-image(ng-src='{{theaterActor.images[0].url}}')
+    flex-slider.actors-theater-image-slider(
+        slide="image in theaterActor.images track by image._id"
+        slideshow="false"
+        keyboard="false"
+      )
+      li
+        img.actors-theater-image(ng-src='{{image.url}}')
 
     .actors-theater-name {{theaterActor.name}}
     .actors-theater-description

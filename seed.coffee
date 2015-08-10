@@ -54,7 +54,9 @@ parseActors = (data) ->
     actor.thumbnail         = imageUrl + 'thumbnails/' + actorNameUrl + '.jpg'
 
     image1 = url: imageUrl + actorNameUrl + '_1.jpg'
+    image2 = url: imageUrl + actorNameUrl + '_2.jpg'
     actor.images.push image1
+    actor.images.push image2
 
     actor.birthplace = null
     if sectionStringArray[0].match(/Aufgewachsen in (.*)/)
