@@ -24,7 +24,6 @@ fs.readFile 'text-katalogwebsite.txt', 'utf8', (err, data) ->
       mongoose.connection.close()
       process.exit()
 
-
 parseActors = (data) ->
   actorStringsArray = data.split('\n\n\n')
 
@@ -39,7 +38,9 @@ parseActors = (data) ->
     #
     # Profile attributes array
     #
-    actor.name              = sectionStringArray[0].split('\n').filter(Boolean)[0]
+    nameString = sectionStringArray[0].split('\n').filter(Boolean)[0]
+    actor.firstName         = nameString.slice 0, nameString.lastIndexOf(' ')
+    actor.lastName          = nameString.slice nameString.lastIndexOf(' ') + 1
     actor.birthdate         = sectionStringArray[0].match(/Geboren am (.*)/)[1]
     actor.height            = sectionStringArray[0].match(/Körpergröße (.*)/)[1]
     actor.hairColor         = sectionStringArray[0].match(/Haarfarbe (.*)/)[1]
@@ -48,7 +49,7 @@ parseActors = (data) ->
 
     actor.images = []
     imageUrl = '/uploads/images/actors/'
-    actorNameUrl = actor.name.toLowerCase().replace(/\ /g, '_').
+    actorNameUrl = nameString.toLowerCase().replace(/\ /g, '_').
       replace('ä','ae').replace('ü','ue').replace('ö','oe').replace('ë','ee')
 
     actor.thumbnail         = imageUrl + 'thumbnails/' + actorNameUrl + '.jpg'

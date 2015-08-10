@@ -3,7 +3,7 @@
 
   .actors-card-image(back-img="{{actor.thumbnail}}")
   .actors-card-title
-    | {{actor.name}}
+    | {{actor.firstName}} {{actor.lastName}}
 
 .actors-theater-wrap(ng-show='isTheaterVisible' ng-click='setTheaterVisibility(false)')
   .actors-theater(ng-click="$event.stopPropagation()")
@@ -21,7 +21,7 @@
       li
         img.actors-theater-image(ng-src='{{image.url}}')
 
-    .actors-theater-name {{theaterActor.name}}
+    .actors-theater-name {{theaterActor.firstName}} {{theaterActor.lastName}}
     .actors-theater-description
       p(ng-if='theaterActor.birthdate')
         b Geboren am

@@ -3,7 +3,10 @@
 mongoose    = require 'mongoose'
 
 actorSchema = new mongoose.Schema
-  name:
+  firstName:
+    type: String
+    required: true
+  lastName:
     type: String
     required: true
   birthdate: String

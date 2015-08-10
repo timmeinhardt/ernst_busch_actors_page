@@ -13,7 +13,7 @@ router.get '/', (req, res) ->
         res.send err
       res.json [resource]
   else
-    Resource.find {query},(err, resources) ->
+    Resource.find query, {}, {sort: {lastName: +1}}, (err, resources) ->
       if err
         res.send err
       res.json resources
