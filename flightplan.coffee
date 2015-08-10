@@ -35,6 +35,9 @@ plan.remote (remote) ->
   remote.log  'Move folder to web root'
   remote.exec 'cp -R /tmp/' + tmpDir + '/. ~/' + projectName
   remote.rm '-rf /tmp/' + tmpDir
+  if plan.runtime.target == 'seed'
+    remote.log 'Seed database'
+    remote.exec 'npm run seed'
   remote.log 'Install dependencies'
   # TODO: do not break on first installation
   remote.exec 'npm --production --prefix ~/' + projectName + ' install ~/' + projectName
