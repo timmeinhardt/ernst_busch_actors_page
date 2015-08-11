@@ -15,46 +15,47 @@
 
     flex-slider.actors-theater-image-slider(
         slide="image in theaterActor.images track by image._id"
-        slideshow="false"
         keyboard="false"
+        direction-nav="false"
+        slide-speed="3000"
       )
       li
         img.actors-theater-image(ng-src='{{image.url}}')
 
-    .actors-theater-name {{theaterActor.firstName}} {{theaterActor.lastName}}
+    .actors-theater-name {{theaterActor.firstName}}<br />{{theaterActor.lastName}}
     .actors-theater-description
       p(ng-if='theaterActor.birthdate')
-        b Geboren am
+        b Geboren am&nbsp;
         | {{theaterActor.birthdate}}
       p(ng-if='theaterActor.birthplace')
-        b Aufgewachsen in
+        b Aufgewachsen in&nbsp;
         | {{theaterActor.birthplace}}
       p(ng-if='theaterActor.nationality')
-        b Nationalität
+        b Nationalität&nbsp;
         | {{theaterActor.nationality}}
       p(ng-if='theaterActor.height')
-        b Körpergröße
+        b Körpergröße&nbsp;
         | {{theaterActor.height}}
       p(ng-if='theaterActor.physique')
-        b Statur
+        b Statur&nbsp;
         | {{theaterActor.physique}}
       p(ng-if='theaterActor.hairColor')
-        b Haarfarbe
+        b Haarfarbe&nbsp;
         | {{theaterActor.hairColor}}
       p(ng-if='theaterActor.eyeColor')
-        b Augenfarbe
+        b Augenfarbe&nbsp;
         | {{theaterActor.eyeColor}}
       p(ng-if='theaterActor.foreignLanguages')
-        b Sprachen
+        b Sprachen&nbsp;
         | {{theaterActor.foreignLanguages}}
       p(ng-if='theaterActor.dialects')
-        b Dialekte
+        b Dialekte&nbsp;
         | {{theaterActor.dialects}}
       p(ng-if='theaterActor.otherSkills')
-        b Besondere Fertigkeiten
+        b Besondere Fertigkeiten&nbsp;
         | {{theaterActor.otherSkills}}
       p(ng-if='theaterActor.agency')
-        b Agentur
+        b Agentur&nbsp;
         | {{theaterActor.agency}}
 
       .actors-theater-appearances
@@ -77,6 +78,7 @@
             p {{movie.year}}   {{movie.title}}
             p {{movie.info}}
 
-        p(ng-if='theaterActor.others')
-          b Sonstiges
-          | {{theaterActor.others}}
+        .actors-theater-appearance-section(ng-if='theaterActor.others')
+          b.actors-theater-appearance-section-title Sonstiges
+          .actors-theater-appearance
+            p {{theaterActor.others}}
