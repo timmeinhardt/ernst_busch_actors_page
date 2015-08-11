@@ -72,6 +72,12 @@
   margin-left:    2rem
   width:          22rem
   float:          left
+  .actors-theater-image-copyright
+    position:   absolute
+    bottom:     5px
+    right:      5px
+    font-size:  11px
+    opacity:    0.5
   img
     &.actors-theater-image
       min-height:         22rem
@@ -138,9 +144,22 @@
   font-family:  'HelveticaNeue', Arial, sans-serif
   margin-top:   2rem
   margin-left:  1rem
-  height:       25rem
-  width:        43rem
-  webkit-appearance: none
+  height:       27rem
+  width:        30rem
+
+  &::-webkit-scrollbar
+    -webkit-appearance: none
+    &:vertical
+      width: 11px
+    &:horizontal
+      height: 11px
+  &::-webkit-scrollbar-thumb
+    border-radius: 8px
+    border: 2px solid white
+    background-color: rgba(0, 0, 0, 0.5)
+  &::-webkit-scrollbar-track
+    background-color: #fff
+    border-radius: 8px
 
 .actors-theater-description > b
   font-weight: bold
@@ -152,7 +171,7 @@
   p:first-child
     vertical-align: text-bottom
 
-.actors-theater-appearance 
+.actors-theater-appearance
   p
     inline-block
 

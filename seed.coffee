@@ -45,7 +45,7 @@ parseActors = (data) ->
     actor.height            = sectionStringArray[0].match(/Körpergröße (.*)/)[1]
     actor.hairColor         = sectionStringArray[0].match(/Haarfarbe (.*)/)[1]
     actor.eyeColor          = sectionStringArray[0].match(/Augenfarbe (.*)/)[1]
-    actor.foreignLanguages  = sectionStringArray[0].match(/Sprachen ((.|\n)*)/)[1].split('\nBesondere')[0].replace(/\n/g, '')
+    actor.foreignLanguages  = sectionStringArray[0].match(/Sprachen ((.|\n)*)/)[1].split(/\n(Besondere|Dialekte)/)[0].replace(/\n/g, '')
 
     actor.images = []
     imageUrl = '/uploads/images/actors/'

@@ -17,10 +17,12 @@
         slide="image in theaterActor.images track by image._id"
         keyboard="false"
         direction-nav="false"
-        slide-speed="3000"
+        slideshow-speed="4000"
+        pause-on-hover="true"
       )
       li
         img.actors-theater-image(ng-src='{{image.url}}')
+        .actors-theater-image-copyright ©Joachim Gern
 
     .actors-theater-name {{theaterActor.firstName}}<br />{{theaterActor.lastName}}
     .actors-theater-description
