@@ -6,7 +6,7 @@ plan.target 'staging',
   username: 'deploy'
   agent: process.env.SSH_AUTH_SOCK
 
-plan.target 'production',
+plan.target 'seed',
   host: '46.101.175.237'
   username: 'deploy'
   agent: process.env.SSH_AUTH_SOCK
@@ -16,16 +16,15 @@ tmpDir = projectName + (new Date).getTime()
 
 # run commands on localhost
 plan.local (local) ->
-  # confirm deployment to production, as we don't want to do this accidentally
-  if plan.runtime.target == 'production'
-    input = local.prompt('Ready for deploying to production? [yes]')
-    if input.indexOf('yes') == -1
-      local.abort 'user canceled flight'
-      # this will stop the flightplan right away.
 
   # rsync files to all the target's hosts
   local.log 'Copy files to remote hosts'
-  filesToCopy = local.exec('git ls-files', silent: true)
+  filesToCopy = local.git('ls-files', silent: true).stdout.split('\n')
+
+  if plan.runtime.target == 'seed'
+    uploadsToCopy = local.find('uploads', silent:true).stdout.split('\n')
+    filesToCopy   = filesToCopy.concat(uploadsToCopy)
+
   local.transfer filesToCopy, '/tmp/' + tmpDir
   return
 
@@ -35,9 +34,10 @@ plan.remote (remote) ->
   remote.log  'Move folder to web root'
   remote.exec 'cp -R /tmp/' + tmpDir + '/. ~/' + projectName
   remote.rm '-rf /tmp/' + tmpDir
-  if plan.runtime.target == 'seed'
-    remote.log 'Seed database'
-    remote.exec 'npm run seed'
+  # TODO: make work
+  #if plan.runtime.target == 'seed'
+  #  remote.log 'Seed database'
+  #  remote.exec 'npm run seed'
   remote.log 'Install dependencies'
   # TODO: do not break on first installation
   remote.exec 'npm --production --prefix ~/' + projectName + ' install ~/' + projectName
@@ -48,4 +48,4 @@ plan.remote (remote) ->
   remote.exec 'export NODE_ENV=production'
   # TODO: do not delete, but reload if already started
   remote.exec 'pm2 delete ' + projectName
-  remote.exec 'pm2 start ~/' + projectName + '/server/index.coffee --name ernst_busch_actors_page'
+  remote.exec 'pm2 start ~/' + projectName + '/server/index.coffee --name ' + projectName
