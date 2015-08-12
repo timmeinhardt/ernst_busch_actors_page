@@ -65,23 +65,23 @@
         .actors-theater-appearance-section(ng-if='theaterActor.roles.length')
           b.actors-theater-appearance-section-title Gearbeitete Rollen/Dozent
           .actors-theater-appearance(ng-repeat='role in theaterActor.roles')
-            p {{role.year}}   
+            p {{role.year}}
             p {{role.title}} <br />
               {{role.info}}
 
         .actors-theater-appearance-section(ng-if='theaterActor.engagements.length')
           b.actors-theater-appearance-section-title Engagements
           .actors-theater-appearance(ng-repeat='engagement in theaterActor.engagements')
-            p {{engagement.year}}   
+            p {{engagement.year}}
             p {{engagement.title}} <br />
-              {{engagement.info}}
+              | {{engagement.info}}
 
         .actors-theater-appearance-section(ng-if='theaterActor.movies.length')
           b.actors-theater-appearance-section-title Film/TV
           .actors-theater-appearance(ng-repeat='movie in theaterActor.movies')
-            p {{movie.year}}   
+            p {{movie.year}}
             p {{movie.title}} <br />
-              {{movie.info}}
+              | {{movie.info}}
 
         .actors-theater-appearance-section(ng-if='theaterActor.others')
           b.actors-theater-appearance-section-title Sonstiges
