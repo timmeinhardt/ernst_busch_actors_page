@@ -67,7 +67,7 @@
           .actors-theater-appearance(ng-repeat='role in theaterActor.roles')
             p {{role.year}}
             p {{role.title}} <br />
-              {{role.info}}
+              | {{role.info}}
 
         .actors-theater-appearance-section(ng-if='theaterActor.engagements.length')
           b.actors-theater-appearance-section-title Engagements

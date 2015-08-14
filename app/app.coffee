@@ -15,7 +15,6 @@ require 'angular-google-maps'
 require 'angular-resource'
 require 'angular-flexslider'
 require 'angular-panel-snap.min'
-require 'angular-panel-snap.min'
 
 #
 # Initialize angularJS app module

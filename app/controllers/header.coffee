@@ -3,16 +3,7 @@ class HeaderController
   #
   #
   #
-  constructor: (@$scope) -> 
-    @initScope()
-    @
-
-  #
-  #
-  #
-  initScope: ->
-    @$scope.title = "Ernst-Busch"
-    
+  constructor: (@$scope) ->
     @
 
 HeaderController.dependencies = [
