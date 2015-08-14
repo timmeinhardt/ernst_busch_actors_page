@@ -3,18 +3,23 @@ class HomeController
   #
   #
   #
-  constructor: (@$scope) ->
-    @initScope()
+  constructor: (@$scope, @$window) ->
+    @setScrollActivity()
+
+    #@$window.onresize = () =>
+    #  @$scope.$apply @setScrollActivity()
     @
 
-  #
-  #
-  #
-  initScope: ->
+  setScrollActivity: () =>
+    if @$window.outerHeight < 500
+      @$scope.snapScrollActive = false
+    else
+      @$scope.snapScrollActive = true
     @
 
 HomeController.dependencies = [
   '$scope'
+  '$window'
 ]
 
 module.exports = HomeController
