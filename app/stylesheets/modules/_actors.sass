@@ -176,7 +176,7 @@
     display: inline-block
 
 
-$base-size: 105px
+$base-size: 115px
 
 @media(max-width: 2120px)
   .actors-card-image
@@ -240,3 +240,23 @@ $base-size: 105px
   .actors-card-title
     font-size: 0.75rem
     margin-top: 0.2rem
+
+@media(max-height: 680px)
+  .actors-card-image
+    width:  $base-size + 10px
+    height: $base-size + 10px
+
+@media(max-height: 600px)
+  .actors-card-image
+    width:  $base-size
+    height: $base-size
+
+@media(max-height: 550px)
+  .actors-card-image
+    width:  $base-size - 15px
+    height: $base-size - 15px
+
+@media(max-height: 500px)
+  .actors-card-image
+    width:  $base-size - 25px
+    height: $base-size - 25px
