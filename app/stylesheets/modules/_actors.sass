@@ -1,24 +1,41 @@
+.actors-row
+  white-space: nowrap
+
+.actors-row-3
+  text-align: center
+
 .actors-card
   cursor:         pointer
-  flex:           1 1 auto
-  margin:         0.7rem auto
+  display:        inline-table
+  margin:         1vh auto
   text-align:     center
-  -webkit-box-flex: 0
-  -webkit-flex:     0 1 auto
-  -ms-flex:         0 1 auto
+  width:          11.4vw
+  height:         24vh
+
+  //
+  // Flexbox layout
+  //
+  //flex:           1 1 auto
+  //-webkit-box-flex: 0
+  //-webkit-flex:     0 1 auto
+  //-ms-flex:         0 1 auto
 
 .actors-card-title
-  margin-top: 0.6rem
-  font-size:   0.8rem
-  font-weight: 500
-  font-family: HelveticaNeue, Arial, sans-serif
-  opacity: 0.6
-  letter-spacing: 1.1px
+  margin-top:       1.5vh
+  width:            11vw
+  font-size:        2vh
+  font-weight:      500
+  font-family:      HelveticaNeue, Arial, sans-serif
+  opacity:          0.8
+  letter-spacing:   1.1px
+  white-space:      normal
 
 .actors-card-image
   margin: 0 auto
-  width:      100px
-  height:     100px
+  height:     20vh
+  max-height: 10.58vw
+  width:     20vh
+  max-width: 10.58vw
   border-radius:        50%
   background-color:     grey
   background-size:      cover
@@ -49,27 +66,28 @@
 
 .actors-theater-wrap
   position:           fixed
-  top:                0px
-  left:               0px
+  overflow-x:         scroll
+  top:                0
+  left:               0
   z-index:            1
   width:              100%
   height:             100%
   background-color:   rgba(0,0,0,0.8)
 
 .actors-theater
-  min-width: 1124px
-  width:      88%
-  height:     95%
+  min-width:  1124px
+  width:      88vw
+  height:     95vh
   margin:     0 auto
-  margin-top: 1.5%
+  margin-top: 2.5vh
   color:      black
   position:   relative
   background: rgba(255,255,255, 1)
 
 .actors-theater-image-slider
-  margin-top:     2rem
-  margin-left:    2rem
-  width:          22rem
+  margin-top:     5vh
+  margin-left:    2.5vw
+  width:          53vh
   float:          left
   .actors-theater-image-copyright
     position:   absolute
@@ -79,17 +97,18 @@
     color:      grey
   img
     &.actors-theater-image
-      min-height:         22rem
+      min-height:         32%
       background-color: grey
 
+.flex-control-nav
+  bottom: -6vH
 
 .actors-theater-name
-  top:       33rem
+  top:       77vH
   letter-spacing: 8px
   left:      2rem
-  font-size: 2.5rem
+  font-size: 5.9vh
   width:     24rem
-  white-space: wrap
   display: inline-block
   position: absolute
   color: $highlight-color
@@ -136,15 +155,21 @@
 .actors-theater-next
   right:      0px
 
-.actors-theater-description
-  overflow-y:     scroll
+.actors-theater-description-wrap
+  position:     relative
+  overflow:     hidden
+  margin-top:   5vH
+  margin-left:  1rem
+  height:       66vH
+  width:        37.7vw
   display:      inline-block
+
+.actors-theater-description
+  height:       100%
+  overflow-y:   scroll
+  overflow-x:   hidden
   font-size:    0.8rem
   font-family:  'HelveticaNeue', Arial, sans-serif
-  margin-top:   2rem
-  margin-left:  1rem
-  height:       27rem
-  width:        30rem
 
   &::-webkit-scrollbar
     -webkit-appearance: none
@@ -166,96 +191,109 @@
   float: left
   margin-right: 1rem
 
+.actors-theater-description-fade-out
+  position:   absolute
+  bottom:     0
+  height:     6vh
+  width:      100%
+  background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100% )
+  background: -moz-linear-gradient( rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100% )
+  background: -o-linear-gradient( rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100% )
+  background: linear-gradient( rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100% )
+  background: -ms-linear-gradient( rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100% )
+
 .actors-theater-appearance
-  p:first-child
-    vertical-align: text-bottom
+  pre:first-child
+    vertical-align: top
     margin-right: 2rem
-    font-size: 0.9rem
-  p
+  pre
     display: inline-block
 
 
-$base-size: 115px
-
-@media(max-width: 2120px)
-  .actors-card-image
-    width:  $base-size + 100px
-    height: $base-size + 100px
-
-@media(max-width: 2000px)
-  .actors-card-image
-    width:  $base-size + 90px
-    height: $base-size + 90px
-
-@media(max-width: 1900px)
-  .actors-card-image
-    width:  $base-size + 80px
-    height: $base-size + 80px
-
-@media(max-width: 1800px)
-  .actors-card-image
-    width:  $base-size + 70px
-    height: $base-size + 70px
-
-@media(max-width: 1800px)
-  .actors-card-image
-    width:  $base-size + 60px
-    height: $base-size + 60px
-
-@media(max-width: 1700px)
-  .actors-card-image
-    width:  $base-size + 60px
-    height: $base-size + 60px
-
-@media(max-width: 1600px)
-  .actors-card-image
-    width:  $base-size + 50px
-    height: $base-size + 50px
-
-@media(max-width: 1480px)
-  .actors-card-image
-    width:  $base-size + 40px
-    height: $base-size + 40px
-
-@media(max-width: 1350px)
-  .actors-card-image
-    width:  $base-size + 30px
-    height: $base-size + 30px
-
-@media(max-width: 1224px)
-  .actors-card-image
-    width:  $base-size + 20px
-    height: $base-size + 20px
-
-@media(max-width: 1150px)
-  .actors-card-image
-    width:  $base-size + 10px
-    height: $base-size + 10px
-
-@media(max-width: 1085px)
-  .actors-card-image
-    width:  $base-size
-    height: $base-size
-  .actors-card-title
-    font-size: 0.75rem
-    margin-top: 0.2rem
-
-@media(max-height: 680px)
-  .actors-card-image
-    width:  $base-size + 10px
-    height: $base-size + 10px
-
-@media(max-height: 600px)
-  .actors-card-image
-    width:  $base-size
-    height: $base-size
-
-@media(max-height: 550px)
-  .actors-card-image
-    width:  $base-size - 15px
-    height: $base-size - 15px
-
-@media(max-height: 500px)
-  .actors-card-image
-    width:  $base-size - 25px
-    height: $base-size - 25px
+//
+// Flexbox layout
+//
+//$base-size: 115px
+//
+//@media(max-width: 2120px)
+//  .actors-card-image
+//    width:  $base-size + 100px
+//    height: $base-size + 100px
+//
+//@media(max-width: 2000px)
+//  .actors-card-image
+//    width:  $base-size + 90px
+//    height: $base-size + 90px
+//
+//@media(max-width: 1900px)
+//  .actors-card-image
+//    width:  $base-size + 80px
+//    height: $base-size + 80px
+//
+//@media(max-width: 1800px)
+//  .actors-card-image
+//    width:  $base-size + 70px
+//    height: $base-size + 70px
+//
+//@media(max-width: 1800px)
+//  .actors-card-image
+//    width:  $base-size + 60px
+//    height: $base-size + 60px
+//
+//@media(max-width: 1700px)
+//  .actors-card-image
+//    width:  $base-size + 60px
+//    height: $base-size + 60px
+//
+//@media(max-width: 1600px)
+//  .actors-card-image
+//    width:  $base-size + 50px
+//    height: $base-size + 50px
+//
+//@media(max-width: 1480px)
+//  .actors-card-image
+//    width:  $base-size + 40px
+//    height: $base-size + 40px
+//
+//@media(max-width: 1350px)
+//  .actors-card-image
+//    width:  $base-size + 30px
+//    height: $base-size + 30px
+//
+//@media(max-width: 1224px)
+//  .actors-card-image
+//    width:  $base-size + 20px
+//    height: $base-size + 20px
+//
+//@media(max-width: 1150px)
+//  .actors-card-image
+//    width:  $base-size + 10px
+//    height: $base-size + 10px
+//
+//@media(max-width: 1085px)
+//  .actors-card-image
+//    width:  $base-size
+//    height: $base-size
+//  .actors-card-title
+//    font-size: 0.75rem
+//    margin-top: 0.2rem
+//
+//@media(max-height: 680px)
+//  .actors-card-image
+//    width:  $base-size + 10px
+//    height: $base-size + 10px
+//
+//@media(max-height: 600px)
+//  .actors-card-image
+//    width:  $base-size
+//    height: $base-size
+//
+//@media(max-height: 550px)
+//  .actors-card-image
+//    width:  $base-size - 15px
+//    height: $base-size - 15px
+//
+//@media(max-height: 500px)
+//  .actors-card-image
+//    width:  $base-size - 25px
+//    height: $base-size - 25px

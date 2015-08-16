@@ -1,9 +1,24 @@
 
-.actors-card(ng-repeat='(iterator, actor) in actors' ng-click="setTheaterActor(iterator); setTheaterVisibility(true)")
+.actors-row
+  .actors-card(ng-repeat='(iterator, actor) in actors.slice(0,7)' ng-click="setTheaterActor(iterator); setTheaterVisibility(true)")
 
-  .actors-card-image(back-img="{{actor.thumbnail}}")
-  .actors-card-title
-    | {{actor.firstName}} {{actor.lastName}}
+    .actors-card-image(back-img="{{actor.thumbnail}}")
+    .actors-card-title
+      | {{actor.firstName}} {{actor.lastName}}
+
+.actors-row
+  .actors-card(ng-repeat='(iterator, actor) in actors.slice(7,14)' ng-click="setTheaterActor(iterator + 7); setTheaterVisibility(true)")
+
+    .actors-card-image(back-img="{{actor.thumbnail}}")
+    .actors-card-title
+      | {{actor.firstName}} {{actor.lastName}}
+
+.actors-row.actors-row-3
+  .actors-card(ng-repeat='(iterator, actor) in actors.slice(14,20)' ng-click="setTheaterActor(iterator + 7); setTheaterVisibility(true)")
+
+    .actors-card-image(back-img="{{actor.thumbnail}}")
+    .actors-card-title
+      | {{actor.firstName}} {{actor.lastName}}
 
 .actors-theater-wrap(ng-show='isTheaterVisible' ng-click='setTheaterVisibility(false)')
   .actors-theater(ng-click="$event.stopPropagation()")
@@ -25,65 +40,69 @@
         .actors-theater-image-copyright ©Joachim Gern
 
     .actors-theater-name {{theaterActor.firstName}}<br />{{theaterActor.lastName}}
-    .actors-theater-description
-      p(ng-if='theaterActor.birthdate')
-        b Geboren am&nbsp;
-        | {{theaterActor.birthdate}}
-      p(ng-if='theaterActor.birthplace')
-        b Aufgewachsen in&nbsp;
-        | {{theaterActor.birthplace}}
-      p(ng-if='theaterActor.nationality')
-        b Nationalität&nbsp;
-        | {{theaterActor.nationality}}
-      p(ng-if='theaterActor.height')
-        b Körpergröße&nbsp;
-        | {{theaterActor.height}}
-      p(ng-if='theaterActor.physique')
-        b Statur&nbsp;
-        | {{theaterActor.physique}}
-      p(ng-if='theaterActor.hairColor')
-        b Haarfarbe&nbsp;
-        | {{theaterActor.hairColor}}
-      p(ng-if='theaterActor.eyeColor')
-        b Augenfarbe&nbsp;
-        | {{theaterActor.eyeColor}}
-      p(ng-if='theaterActor.foreignLanguages')
-        b Sprachen&nbsp;
-        | {{theaterActor.foreignLanguages}}
-      p(ng-if='theaterActor.dialects')
-        b Dialekte&nbsp;
-        | {{theaterActor.dialects}}
-      p(ng-if='theaterActor.otherSkills')
-        b Besondere Fertigkeiten&nbsp;
-        | {{theaterActor.otherSkills}}
-      p(ng-if='theaterActor.agency')
-        b Agentur&nbsp;
-        | {{theaterActor.agency}}
 
-      .actors-theater-appearances
+    .actors-theater-description-wrap
+      .actors-theater-description
+        p(ng-if='theaterActor.birthdate')
+          b Geboren am&nbsp;
+          | {{theaterActor.birthdate}}
+        p(ng-if='theaterActor.birthplace')
+          b Aufgewachsen in&nbsp;
+          | {{theaterActor.birthplace}}
+        p(ng-if='theaterActor.nationality')
+          b Nationalität&nbsp;
+          | {{theaterActor.nationality}}
+        p(ng-if='theaterActor.height')
+          b Körpergröße&nbsp;
+          | {{theaterActor.height}}
+        p(ng-if='theaterActor.physique')
+          b Statur&nbsp;
+          | {{theaterActor.physique}}
+        p(ng-if='theaterActor.hairColor')
+          b Haarfarbe&nbsp;
+          | {{theaterActor.hairColor}}
+        p(ng-if='theaterActor.eyeColor')
+          b Augenfarbe&nbsp;
+          | {{theaterActor.eyeColor}}
+        p(ng-if='theaterActor.foreignLanguages')
+          b Sprachen&nbsp;
+          | {{theaterActor.foreignLanguages}}
+        p(ng-if='theaterActor.dialects')
+          b Dialekte&nbsp;
+          | {{theaterActor.dialects}}
+        p(ng-if='theaterActor.otherSkills')
+          b Besondere Fertigkeiten&nbsp;
+          | {{theaterActor.otherSkills}}
+        p(ng-if='theaterActor.agency')
+          b Agentur&nbsp;
+          | {{theaterActor.agency}}
 
-        .actors-theater-appearance-section(ng-if='theaterActor.roles.length')
-          b.actors-theater-appearance-section-title Gearbeitete Rollen/Dozent
-          .actors-theater-appearance(ng-repeat='role in theaterActor.roles')
-            p {{role.year}}
-            p {{role.title}} <br />
-              | {{role.info}}
+        .actors-theater-appearances
 
-        .actors-theater-appearance-section(ng-if='theaterActor.engagements.length')
-          b.actors-theater-appearance-section-title Engagements
-          .actors-theater-appearance(ng-repeat='engagement in theaterActor.engagements')
-            p {{engagement.year}}
-            p {{engagement.title}} <br />
-              | {{engagement.info}}
+          .actors-theater-appearance-section(ng-if='theaterActor.roles.length')
+            b.actors-theater-appearance-section-title Gearbeitete Rollen/Dozent
+            .actors-theater-appearance(ng-repeat='role in theaterActor.roles')
+              pre {{role.year}}
+              pre {{role.title}}
+                | {{role.info}}
 
-        .actors-theater-appearance-section(ng-if='theaterActor.movies.length')
-          b.actors-theater-appearance-section-title Film/TV
-          .actors-theater-appearance(ng-repeat='movie in theaterActor.movies')
-            p {{movie.year}}
-            p {{movie.title}} <br />
-              | {{movie.info}}
+          .actors-theater-appearance-section(ng-if='theaterActor.engagements.length')
+            b.actors-theater-appearance-section-title Engagements
+            .actors-theater-appearance(ng-repeat='engagement in theaterActor.engagements')
+              pre {{engagement.year}}
+              pre {{engagement.title}}
+                | {{engagement.info}}
 
-        .actors-theater-appearance-section(ng-if='theaterActor.others')
-          b.actors-theater-appearance-section-title Sonstiges
-          .actors-theater-appearance
-            p {{theaterActor.others}}
+          .actors-theater-appearance-section(ng-if='theaterActor.movies.length')
+            b.actors-theater-appearance-section-title Film/TV
+            .actors-theater-appearance(ng-repeat='movie in theaterActor.movies')
+              pre {{movie.year}}
+              pre {{movie.title}}
+                | {{movie.info}}
+
+          .actors-theater-appearance-section(ng-if='theaterActor.others')
+            b.actors-theater-appearance-section-title Sonstiges
+            .actors-theater-appearance
+              pre {{theaterActor.others}}
+
+      .actors-theater-description-fade-out
