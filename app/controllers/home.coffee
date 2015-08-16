@@ -4,11 +4,21 @@ class HomeController
   #
   #
   constructor: (@$scope, @$window) ->
-    @setScrollActivity()
+    #@setScrollActivity()
+    #@setWidthViewPortTag()
 
-    #@$window.onresize = () =>
-    #  @$scope.$apply @setScrollActivity()
+    @$window.onresize = () =>
+      #@setWidthViewPortTag()
+      #@$scope.$apply @setScrollActivity()
     @
+
+  setWidthViewPortTag: () =>
+    widthViewportTag = @$window.document.getElementById 'width-viewport-tag'
+
+    if @$window.outerWidth < 1200
+      widthViewportTag.setAttribute 'content', 'width=1200, initial-scale=1'
+    else
+      widthViewportTag.setAttribute 'content', 'width=device-width, initial-scale=1'
 
   setScrollActivity: () =>
     if @$window.outerHeight < 500
