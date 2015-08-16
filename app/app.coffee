@@ -1,6 +1,6 @@
 'use strict'
 
-pageTitle = "Ernst-Busch Jahrgang 2016"
+pageTitle = "Ernst Busch Absolventen 2016"
 
 #
 # Require vendor modules explicitly
