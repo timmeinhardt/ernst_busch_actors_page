@@ -92,9 +92,10 @@ parseActors = (data) ->
 
         for roleString in rolesStringArray
           role = {}
-          role.year   = roleString.replace(/\n/g, '').split('\t')[0]
-          role.title  = roleString.replace(/\n/g, '').split('\t')[1]
-          role.info   = roleString.replace(/\n/g, '').split('\t')[2]
+          tabSplit = roleString.replace(/\n/g, '').split('\t').filter(Boolean)
+          role.year   = tabSplit[0]
+          role.title  = tabSplit[1]
+          role.info   = tabSplit[2]
           actor.roles.push role
 
       #
@@ -105,9 +106,11 @@ parseActors = (data) ->
 
         for engagementString in engagementsStringArray
           engagement = {}
-          engagement.year   = engagementString.replace(/\n/g, '').split('\t')[0]
-          engagement.title  = engagementString.replace(/\n/g, '').split('\t')[1]
-          engagement.info   = engagementString.replace(/\n/g, '').split('\t')[2]
+          tabSplit = engagementString.replace(/\n/g, '').split('\t').filter(Boolean)
+          engagement.year   = tabSplit[0]
+          engagement.title  = tabSplit[1]
+          engagement.info   = tabSplit[2]
+
           actor.engagements.push engagement
 
       #
@@ -118,9 +121,10 @@ parseActors = (data) ->
 
         for movieString in moviesStringArray
           movie = {}
-          movie.year   = movieString.replace(/\n/g, '').split('\t')[0]
-          movie.title  = movieString.replace(/\n/g, '').split('\t')[1]
-          movie.info   = movieString.replace(/\n/g, '').split('\t')[2]
+          tabSplit = movieString.replace(/\n/g, '').split('\t').filter(Boolean)
+          movie.year   = tabSplit[0]
+          movie.title  = tabSplit[1]
+          movie.info   = tabSplit[2]
           actor.movies.push movie
 
       #
