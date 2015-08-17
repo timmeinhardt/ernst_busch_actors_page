@@ -14,7 +14,7 @@
       | {{actor.firstName}} {{actor.lastName}}
 
 .actors-row.actors-row-3
-  .actors-card(ng-repeat='(iterator, actor) in actors.slice(14,20)' ng-click="setTheaterActor(iterator + 7); setTheaterVisibility(true)")
+  .actors-card(ng-repeat='(iterator, actor) in actors.slice(14,20)' ng-click="setTheaterActor(iterator + 14); setTheaterVisibility(true)")
 
     .actors-card-image(back-img="{{actor.thumbnail}}")
     .actors-card-title
