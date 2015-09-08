@@ -2,7 +2,7 @@ map = ->
 
   restrict: 'E'
 
-  controller: 'MapController'
+  controller: require('controllers/map')
 
   template: require('templates/map')()
 

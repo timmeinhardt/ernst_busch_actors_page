@@ -66,28 +66,37 @@
 
 .actors-theater-wrap
   position:           fixed
-  overflow-x:         scroll
+  overflow: hidden
   top:                0
   left:               0
   z-index:            1
-  width:              100%
+  width:              100vw
   height:             100%
   background-color:   rgba(0,0,0,0.8)
 
 .actors-theater
-  min-width:  1124px
   width:      88vw
-  height:     95vh
+  height:     88vh
   margin:     0 auto
   margin-top: 2.5vh
   color:      black
   position:   relative
   background: rgba(255,255,255, 1)
+  padding-top:     5vh
+  padding-bottom:  2vh
+
+.actors-theater-profile
+  display: inline-block
+  vertical-align: top
+  width:      80vw
+  height:     100%
+  overflow-y: scroll
+
+.actors-theater-avatar
+  display: inline-block
+  max-width: 53vh
 
 .actors-theater-image-slider
-  margin-top:     5vh
-  margin-left:    2.5vw
-  width:          53vh
   float:          left
   .actors-theater-image-copyright
     position:   absolute
@@ -97,78 +106,71 @@
     color:      grey
   img
     &.actors-theater-image
-      min-height:         32%
       background-color: grey
 
 .flex-control-nav
   bottom: -6vH
 
+.flexslider
+  margin: 0 0 6vh
+  border: none
+
 .actors-theater-name
-  top:       77vH
-  letter-spacing: 8px
-  left:      2rem
-  font-size: 5.9vh
-  width:     24rem
-  display: inline-block
-  position: absolute
-  color: $highlight-color
+  display:          inline-block
+  letter-spacing:   8px
+  font-size:        5.9vmin
+  width:            28vmin
+  color:            $highlight-color
 
 .actors-theater-close
   position:  absolute
-  font-size: 1rem
+  font-size: 3.5vh
   font-weight: 900
+  z-index: 200
+  width: 5vmax
+  height: 5vmax
+  text-align: right
   top:       0.3rem
   right:     0.6rem
   cursor:    pointer
-  opacity:   0.5
+  opacity:   0.4
   transition:   all 0.4s ease-in-out
 
-
 .actors-theater-close:hover
-  position:  absolute
-  font-size: 1.4rem
-  opacity:   0.7
-
+  font-size: 4vh
 
 .actors-theater-prev, .actors-theater-next
-  position:   absolute
-  top:        1.5rem
-  width:      2rem
-  height:     94%
+  display: inline-block
   background: rgba(0,0,0,0.00)
   cursor:     pointer
+  height:     100%
 
   img
-    position:     absolute
-    width:        35px
-    height:       47px
-    top:          45%
-    opacity:      0.3
+    margin-top:   40vh
+    width:        3vw
+    height:       8vh
+    opacity:      0.4
     transition:   all 0.4s ease-in-out
 
   &:hover > img
     transform: scale(1.4)
 
-.actors-theater-prev
-  left:       0px
-
 .actors-theater-next
-  right:      0px
+  float: right
 
 .actors-theater-description-wrap
   position:     relative
   overflow:     hidden
-  margin-top:   5vH
-  margin-left:  1rem
-  height:       66vH
+  margin-left:  1.5vw
+  height:       66vh
   width:        37.7vw
   display:      inline-block
+  vertical-align: top
 
 .actors-theater-description
   height:       100%
   overflow-y:   scroll
-  overflow-x:   hidden
-  font-size:    1.85vh
+  font-size:    calc(0.7vh + 0.7vw)
   font-family:  'HelveticaNeue', Arial, sans-serif
 
   &::-webkit-scrollbar

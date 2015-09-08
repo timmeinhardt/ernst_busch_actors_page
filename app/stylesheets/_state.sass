@@ -1,2 +1,57 @@
 .hideOverflow
   overflow: hidden
+  height: 100px
+
+// Should not be here, but anyway...
+
+@media(max-width: 768px)
+  map
+    display: none
+
+  .ak-panel
+    width: 100vw !important
+    height: initial !important
+
+  .main-group-menu
+    display: none
+
+  actors
+    height: initial
+
+  .actors-card
+    display: block
+    width: 41.4vw
+    height: 34vh
+
+  .actors-card-image
+    height: 25vh
+    max-height: none
+    width: 25vh
+    max-width: none
+
+  .actors-card-title
+    width: initial
+
+  header
+    padding-top: 2vh
+
+  .header-title
+    letter-spacing: 1vw
+
+  .actors-theater-avatar
+    max-width: initial
+
+  .actors-theater-description-wrap
+    width: 100%
+    height: initial
+
+  .actors-theater-description
+    white-space: pre-line
+    height: initial
+
+  .actors-theater-prev, .actors-theater-next
+    img
+      width: 8vw
+
+  .actors-theater-profile
+    width: 70vw
