@@ -9,12 +9,12 @@ router.get '/', (req, res) ->
   query = req.query
   if query.hasOwnProperty '_id'
     Resource.findById query._id, (err, resource) ->
-      if err 
+      if err
         res.send err
       res.json [resource]
   else
     Resource.find {query},(err, resources) ->
-      if err 
+      if err
         res.send err
       res.json resources
 
@@ -37,19 +37,41 @@ router.delete '/:_id', (req, res) ->
     res.json resource
 
 
-i = 0
-n = 2
-while i < n
-  Resource.remove {}, ->
-    Resource.create {
-      name: 'Kinski - Früher habe ich alle Menschen gehasst!'
-      image: '/uploads/images/actors/klaus_kinski.png'
-      date:  new Date
-      location: 'hell'
-      description: 'Schlechtes Benehmen halten die Leute 
-                    doch nur deswegen für eine Art Vorrecht, 
-                    weil keiner ihnen aufs Maul haut.'
-    }, ->
-  i++
+
+Resource.remove {}, ->
+  Resource.create {
+    name: 'Generalprobe Intendantenvorspiel Tag 1'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("October 19, 2015 10:00")
+  }, ->
+  Resource.create {
+    name: 'Generalprobe Intendantenvorspiel Tag 2'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("October 20, 2015 10:00")
+  }, ->
+  Resource.create {
+    name: 'Intendantenvorspiel Tag 1'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("October 21, 2015 10:00")
+  }, ->
+  Resource.create {
+    name: 'Intendantenvorspiel Tag 2'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("October 22, 2015 10:00")
+  }, ->
+  Resource.create {
+    name: 'Zentrales Vorsprechen München'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("November 10, 2015 10:00")
+    date_end:  new Date("November 10, 2015 12:40")
+  }, ->
+  Resource.create {
+    name: 'Beschreibung eines Kampfes'
+    description: 'nach Franz Kafka, Grüner Salon der Volksbühne Berlin. R.: Lukas Darnstädt & Nikolas Darnstädt'
+    image: '/uploads/images/events/event_default.jpg'
+    date_start:  new Date("December 17")
+    link: 'http://www.volksbuehne-berlin.de/deutsch/spielplan/'
+    actors: ['Lukas Darnstädt']
+  }, ->
 
 module.exports = router
