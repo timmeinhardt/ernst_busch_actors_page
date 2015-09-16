@@ -4,7 +4,8 @@ class EventsController
   #
   #
   constructor: (@$scope, $resource) ->
-    @resource = $resource '/events/:_id', null, 'update': method: 'PUT'
+    @eventsResource = $resource '/events/:_id', null, 'update': method: 'PUT', isArray: true
+    @actorsResource = $resource '/actors/:_id', null, 'update': method: 'PUT', isArray: true
     @initScope()
     @
 
@@ -12,10 +13,21 @@ class EventsController
   #
   #
   initScope: ->
-    @resource.query {}, (events)=>
-      @$scope.events = events
+    @$scope.events = @eventsResource.query {}, ()->
+    @actorsResource.query {}, (actors)=>
+      @actors = actors
+      @$scope.actors = @actors
 
- 
+    @$scope.nameFilter = ""
+    @$scope.filterEvents = @filterEvents
+    @
+
+  filterEvents: (actor) =>
+    if @$scope.nameFilter == actor.lastName
+      @$scope.nameFilter = ''
+    else
+      @$scope.nameFilter = actor.lastName
+    @
 
 EventsController.dependencies = [
   '$scope'

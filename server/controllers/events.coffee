@@ -9,12 +9,12 @@ router.get '/', (req, res) ->
   query = req.query
   if query.hasOwnProperty '_id'
     Resource.findById query._id, (err, resource) ->
-      if err 
+      if err
         res.send err
       res.json [resource]
   else
-    Resource.find {query},(err, resources) ->
-      if err 
+    Resource.find(query).sort('date_start').exec (err, resources) ->
+      if err
         res.send err
       res.json resources
 
@@ -35,21 +35,5 @@ router.delete '/:_id', (req, res) ->
     if err
       res.send err
     res.json resource
-
-
-i = 0
-n = 2
-while i < n
-  Resource.remove {}, ->
-    Resource.create {
-      name: 'Kinski - Früher habe ich alle Menschen gehasst!'
-      image: '/uploads/images/actors/klaus_kinski.png'
-      date:  new Date
-      location: 'hell'
-      description: 'Schlechtes Benehmen halten die Leute 
-                    doch nur deswegen für eine Art Vorrecht, 
-                    weil keiner ihnen aufs Maul haut.'
-    }, ->
-  i++
 
 module.exports = router

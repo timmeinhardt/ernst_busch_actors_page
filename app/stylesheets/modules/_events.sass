@@ -1,44 +1,92 @@
-.events-card
-  background-attachment: scroll
-  background-clip:       border-box
-  background-color:      #bcbcb7
-  background-image:      none
-  background-origin:     padding-box
-  background-size:       auto
-  box-sizing:            border-box
-  color:                 black
-  display:               block
-  font-family:           Lato
-  font-size:             1rem
-  font-weight:           100
-  padding:               20px
-  padding-bottom:        40px
+.events-wrap
+  padding-left: 9vw
+  padding-right: 9vw
+  padding-top: 12vh
 
-.events-card-title
-  font-size:   1rem
-  font-weight: 400
+.events-actors
+  font-size:  3.8vh
+  width:      58vw
+  margin:     0 auto
 
-.events-card-image
-  margin:     13px 0
-  width:      150px
-  height:     150px
-  filter:         grayscale(1)
-  -webkit-filter: grayscale(1)
-  -moz-filter:    grayscale(1)
-  -o-filter:      grayscale(1)
-  -ms-filter:     grayscale(1)
-  transition:         all 1s ease-in-out
-  -webkit-transition: all 1s ease-in-out
-  -moz-transition:    all 1s ease-in-out
-  -o-transition:      all 1s ease-in-out
+.events-actor
+  display:      inline-block
+  margin-right: 0.8vw
+  margin-bottom: 0.8vh
 
+.events-actor-image
+  width:            5vw
+  height:           5vw
+  line-height:      5vw
+  background-size:  cover
+  border-radius:    50px
+  text-align:       center
+  color:            white
+  cursor:           pointer
+
+  &.active
+    color: $highlight-color
+
+.events-slider
+  margin-top: 2vh
+  .flex-direction-nav
+    a
+      -moz-transition: none
+      -webkit-transition: none
+      -o-transition: none
+      transition: none
+
+  .flexslider
+    li
+    &:hover
+      .flex-prev
+        left: -25px
+      .flex-next
+        right: -35px
+
+  .event-image
+    height: 25vh
+    background-size: contain
+    background-repeat: round
+    &:hover + .event-dates
+      display: initial
+
+.event-wrap
+  box-sizing: border-box
+  padding:    0.7vw
+  position:   relative
+  a
+    text-decoration: none
+    color: $highlight-color
   &:hover
-    filter:         grayscale(0)
-    -webkit-filter: grayscale(0)
-    -moz-filter:    grayscale(0)
-    -o-filter:      grayscale(0)
-    -ms-filter:     grayscale(0)
+    a.hasLink
+      text-decoration: underline
 
-.events-card-description
-  font-size:     0.8rem
+.event-dates
+  display: none
+  font-size: 2.3vh
+  color: white
+  position: absolute
+  top: 8vh
+  left: 1.8vw
+  width: 16vw
+  &:hover
+    display: initial
 
+.event-date
+  display: inline-block
+  margin-right: 1vw
+  margin-bottom: 1vh
+
+.event-name
+  color:      $highlight-color
+  margin-top: 1vh
+  font-size:  2.5vh
+
+.event-start
+  position:   absolute
+  top:        3.5vh
+  left:       1.8vw
+  color:      white
+
+.event-description
+  font-size: 2vh

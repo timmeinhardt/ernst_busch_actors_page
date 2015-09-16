@@ -6,9 +6,16 @@ eventSchema = new mongoose.Schema
   name:
     type: String
     required: true
-  date: Date
-  location: String
+  image: String
   description: String
+  link: String
+  date_start: Date
+  dates: Array
+  actors: [
+    {
+      name: String
+    }
+  ]
 
 Event = mongoose.model 'Event', eventSchema
 

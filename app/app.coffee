@@ -15,12 +15,14 @@ require 'angular-google-maps'
 require 'angular-resource'
 require 'angular-flexslider'
 require 'angular-panel-snap.min'
+require 'angular-locale_de-de'
 
 #
 # Initialize angularJS app module
 #
 app = angular.module 'App', [
   'ngRoute'
+  'ngLocale'
   'uiGmapgoogle-maps'
   'ngResource'
   'akreitals.panel-snap'
@@ -53,10 +55,10 @@ app.config ($routeProvider, $locationProvider) ->
       title: pageTitle
       controller: 'HomeController'
       template:   require 'templates'
-    .when '/admin',
-      title: pageTitle + " Admin"
-      controller: 'AdminController'
-      template: require 'templates/admin'
+    #.when '/admin',
+    #  title: pageTitle + " Admin"
+    #  controller: 'AdminController'
+    #  template: require 'templates/admin'
 
 #
 # Dynamically change browser title for different routes
