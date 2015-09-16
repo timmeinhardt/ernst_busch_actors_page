@@ -12,7 +12,7 @@
       animation="slide"
       animation-loop="false"
       slideshow="false"
-      keyboard="false"
+      keyboard="true"
       direction-nav="true"
       control-nav= "false"
       min-items="4"
@@ -26,6 +26,6 @@
         .event-dates
           .event-date(ng-repeat="date in event.dates.slice(1)") {{date | date:'dd MMM'}}
         .event-start {{event.date_start | date:'dd MMM'}}
-        a(ng-href="{{event.link}}" ng-class="{'hasLink':event.link}")
+        a(ng-href="{{event.link}}" ng-class="{'hasLink':event.link}" target="_blank")
           h4.event-name {{event.name}}
         p.event-description {{event.description}}
