@@ -53,10 +53,10 @@ app.config ($routeProvider, $locationProvider) ->
       title: pageTitle
       controller: 'HomeController'
       template:   require 'templates'
-    .when '/admin',
-      title: pageTitle + " Admin"
-      controller: 'AdminController'
-      template: require 'templates/admin'
+    #.when '/admin',
+    #  title: pageTitle + " Admin"
+    #  controller: 'AdminController'
+    #  template: require 'templates/admin'
 
 #
 # Dynamically change browser title for different routes
