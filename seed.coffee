@@ -1,6 +1,7 @@
 fs = require('fs')
 mongoose = require('mongoose')
 ActorModel = require('./server/models/actors')
+EventModel = require('./server/models/events')
 
 mongoose.connect 'mongodb://localhost/ernst-busch-actors', (err) ->
   if err
@@ -19,10 +20,12 @@ fs.readFile 'text-katalogwebsite.txt', 'utf8', (err, data) ->
     console.log 'clean up finished'
 
     ActorModel.create actorsArray, (err) ->
-      console.log 'seed finished'
+      seedEvents(exit)
 
-      mongoose.connection.close()
-      process.exit()
+exit = ->
+  console.log 'seed finished'
+  mongoose.connection.close()
+  process.exit()
 
 parseActors = (data) ->
   actorStringsArray = data.split('\n\n\n')
@@ -139,3 +142,168 @@ parseActors = (data) ->
     actors.push actor
 
   actors
+
+seedEvents = (callback) ->
+  console.log 'seed events'
+  actorsArray = [
+    {name: 'Annemarie Brüntjen'}
+    {name: 'Lukas Darnstädt'}
+    {name: 'Florian Donath'}
+    {name: 'Stella Hinrichs'}
+    {name: 'Jonathan Kutzner'}
+    {name: 'Seraina Leuenberger'}
+    {name: 'Janine Meißner'}
+    {name: 'Jaëla Carlina Probst'}
+    {name: 'Llewellyn Reichman'}
+    {name: 'Linn Reusse'}
+    {name: 'Tim Riedel'}
+    {name: 'Leonard Scheicher'}
+    {name: 'Gregor Schleuning'}
+    {name: 'Gregor Schulz'}
+    {name: 'Felix Strobel'}
+    {name: 'Karoline Teska'}
+    {name: 'Gaia Vogel'}
+    {name: 'Gregor Schleuning'}
+    {name: 'Fabian Wehmeier'}
+    {name: 'Sebastian Witt'}
+    {name: 'Timocin Ziegler'}
+  ]
+
+  EventModel.remove {}, ->
+    EventModel.create [
+      {
+        name: 'Generalprobe Intendantenvorspiel Tag 1'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("October 19, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Generalprobe Intendantenvorspiel Tag 2'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("October 20, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Intendantenvorspiel Tag 1'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("October 21, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Intendantenvorspiel Tag 2'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("October 22, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Zentrales Vorsprechen München'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("November 10, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Beschreibung eines Kampfes'
+        description: 'nach Franz Kafka, Grüner Salon der Volksbühne Berlin. R.: Lukas Darnstädt & Nikolas Darnstädt'
+        image: '/uploads/images/events/kampf.jpeg'
+        date_start:  new Date("December 17, 2015")
+        link: 'http://www.volksbuehne-berlin.de/deutsch/spielplan/'
+        actors: [
+          {name: 'Lukas Darnstädt'}
+        ]
+      }
+      {
+        name: 'Schlafe mein Prinzchen'
+        description: 'R.: Franz Wittenbrink, Berliner Ensemble'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("September 6, 2015")
+        link: 'http://www.berliner-ensemble.de/repertoire/titel/114/schlafe-mein-prinzchen'
+        dates: [new Date("September 6, 2015"), new Date("October 13, 2015")]
+        actors: [
+          {name: 'Annemarie Brüntjen'}
+        ]
+      }
+      {
+        name: 'Deutschstunde'
+        description: 'Berliner Ensemble, R.: Philip Tiedemann'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("September 1, 2015")
+        link: 'http://www.berliner-ensemble.de/repertoire/titel/113/deutschstunde'
+        dates: [new Date("September 1, 2015"),new Date("September 2, 2015"),new Date("September 8, 2015"),
+          new Date("September 13, 2015"), new Date("October 9, 2015"), new Date("October 30, 2015")]
+        actors: [
+          {name: 'Felix Strobel'}
+        ]
+      }
+      {
+        name: 'Was ihr Wollt'
+        description: 'R.: Alexander Lang, bat in der Parkstraße 16, 13086 Berlin-Weißensee'
+        image: '/uploads/images/events/wollt.jpeg'
+        date_start:  new Date("September 22, 2015")
+        link: 'http://www.bat-berlin.de/'
+        dates: [new Date("September 22, 2015"), new Date("October 22, 2015")]
+        actors: [
+          {name: 'Stella Hinrichs'}
+          {name: 'Jaela Carlina Probst'}
+          {name: 'Llewellyn Reichman'}
+          {name: 'Linn Reusse'}
+          {name: 'Gaia Vogel'}
+          {name: 'Florian Donath'}
+          {name: 'Tim Riedel'}
+          {name: 'Jonathan Kutzner'}
+          {name: 'Leonard Scheicher'}
+          {name: 'Gregor Schulz'}
+          {name: 'Sebastian Witt'}
+        ]
+      }
+      {
+        name: 'Fabian - Der Gang vor die Hunde'
+        description: 'R.: Peter Kleinert Schaubühne am Lehniner Platz'
+        image: '/uploads/images/events/fabian.jpg'
+        date_start:  new Date("September 24, 2015")
+        link: 'https://www.schaubuehne.de/de/produktionen/fabian-der-gang-vor-die-hunde.html/m=318'
+        dates: [new Date("September 6, 2015"),new Date("September 6, 2015"),new Date("September 6, 2015"),
+          new Date("September 24, 2015"),new Date("September 25, 2015"),new Date("October 2, 2015"),
+          new Date("October 3, 2015"),new Date("October 4, 2015"), new Date("October 21, 2015"),
+          new Date("October 24, 2015"),new Date("October 25, 2015"), new Date("November 3, 2015"),
+          new Date("November 4, 2015"),new Date("November 29, 2015"), new Date("November 30, 2015")]
+        actors: [
+          {name: 'Florian Donath'}
+          {name: 'Stella Hinrichs'}
+          {name: 'Janine Meißner'}
+          {name: 'Llewellyn Reichmann'}
+          {name: 'Tim Riedel'}
+          {name: 'Timocin Ziegler'}
+          {name: 'Gregor Schulz'}
+        ]
+      }
+      {
+        name: 'Zwei Herren aus Verona'
+        description: 'R.: Veit Schubert, Berliner Ensemble'
+        image: '/uploads/images/events/herren.jpeg'
+        date_start:  new Date("October 12, 2015")
+        link: 'http://www.berliner-ensemble.de/repertoire/titel/108/zwei-herren-aus-verona'
+        dates: [new Date("October 12, 2015"), new Date("October 14, 2015"),
+          new Date("October 21, 2015"),new Date("October 29, 2015")]
+        actors: [
+          {name: 'Annemarie Brüntjen'}
+          {name: 'Karoline Teska'}
+          {name: 'Gaia Vogel'}
+          {name: 'Jonathan Kutzner'}
+          {name: 'Leonard Scheicher'}
+          {name: 'Felix Strobel'}
+          {name: 'Sebastian Witt'}
+        ]
+      }
+      {
+        name: 'Monster'
+        description: 'R.: Veit Schubert, Berliner Ensemble'
+        image: '/uploads/images/events/monster.jpeg'
+        date_start:  new Date("October 2, 2015")
+        link: 'R.: Simon Solberg, Deutsches Theater Berlin'
+        dates: [new Date("October 2, 2015"), new Date("October 20, 2015")]
+        actors: [
+          {name: 'Linn Reusse'}
+          {name: 'Gregor Schleuning'}
+        ]
+      }], ->
+        callback()
