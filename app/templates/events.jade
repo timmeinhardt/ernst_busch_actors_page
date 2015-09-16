@@ -1,9 +1,32 @@
-.events-card(ng-repeat='event in events')
-  .events-card-title
-    | {{event.name}}
-  .events-card-image(back-img="{{event.image}}")
-  .events-card-description
-    | {{event.description}}
+.events-wrap
+  .events-actors
+    .events-actor(
+      ng-repeat='actor in actors'
+      ng-click="filterEvents(actor)"
+    )
+      .events-actor-image(back-img="{{actor.thumbnail}}" ng-class="{'active':nameFilter == actor.lastName}")
+        | {{actor.firstName[0]}} {{actor.lastName[0]}}
 
-
-
+  flex-slider.events-slider(
+      slide="event in events | filter: { $: nameFilter } track by event._id"
+      animation="slide"
+      animation-loop="false"
+      slideshow="false"
+      keyboard="false"
+      direction-nav="true"
+      control-nav= "false"
+      min-items="4"
+      max-items="4"
+      item-width="100"
+      item-margin="-1"
+      move="4"
+    )
+    li
+      .event-wrap
+        .event-image(back-img='{{event.image}}')
+        .event-dates
+          .event-date(ng-repeat="date in event.dates") {{date | date:'dd MMM'}}
+        .event-start {{event.date_start | date:'dd MMM'}}
+        a(ng-href="{{event.link}}" ng-class="{'hasLink':event.link}")
+          h4.event-name {{event.name}}
+        p.event-description {{event.description}}
