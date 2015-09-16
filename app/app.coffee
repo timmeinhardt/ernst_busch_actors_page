@@ -15,12 +15,14 @@ require 'angular-google-maps'
 require 'angular-resource'
 require 'angular-flexslider'
 require 'angular-panel-snap.min'
+require 'angular-locale_de-de'
 
 #
 # Initialize angularJS app module
 #
 app = angular.module 'App', [
   'ngRoute'
+  'ngLocale'
   'uiGmapgoogle-maps'
   'ngResource'
   'akreitals.panel-snap'

@@ -173,32 +173,51 @@ seedEvents = (callback) ->
     EventModel.create [
       {
         name: 'Generalprobe Intendantenvorspiel Tag 1'
+        description: '10 Uhr'
         image: '/uploads/images/events/default.jpg'
         date_start:  new Date("October 19, 2015 10:00")
         actors: actorsArray
       }
       {
         name: 'Generalprobe Intendantenvorspiel Tag 2'
+        description: '10 Uhr'
         image: '/uploads/images/events/default.jpg'
         date_start:  new Date("October 20, 2015 10:00")
         actors: actorsArray
       }
       {
         name: 'Intendantenvorspiel Tag 1'
+        description: '10 Uhr'
         image: '/uploads/images/events/default.jpg'
         date_start:  new Date("October 21, 2015 10:00")
         actors: actorsArray
       }
       {
         name: 'Intendantenvorspiel Tag 2'
+        description: '10 Uhr'
         image: '/uploads/images/events/default.jpg'
         date_start:  new Date("October 22, 2015 10:00")
         actors: actorsArray
       }
       {
         name: 'Zentrales Vorsprechen München'
+        description: '10 und 12.40 Uhr'
         image: '/uploads/images/events/default.jpg'
         date_start:  new Date("November 10, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Zentrales Vorsprechen Neuss'
+        description: '16 und 18.40 Uhr, Rheinisches Landestheater Neuss'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("November 12, 2015 10:00")
+        actors: actorsArray
+      }
+      {
+        name: 'Zentrales Vorsprechen Berlin'
+        description: '15 und 17.40 Uhr, vorraussichtlich BE'
+        image: '/uploads/images/events/default.jpg'
+        date_start:  new Date("November 13, 2015 10:00")
         actors: actorsArray
       }
       {
@@ -261,8 +280,7 @@ seedEvents = (callback) ->
         image: '/uploads/images/events/fabian.jpg'
         date_start:  new Date("September 24, 2015")
         link: 'https://www.schaubuehne.de/de/produktionen/fabian-der-gang-vor-die-hunde.html/m=318'
-        dates: [new Date("September 6, 2015"),new Date("September 6, 2015"),new Date("September 6, 2015"),
-          new Date("September 24, 2015"),new Date("September 25, 2015"),new Date("October 2, 2015"),
+        dates: [new Date("September 24, 2015"),new Date("September 25, 2015"),new Date("October 2, 2015"),
           new Date("October 3, 2015"),new Date("October 4, 2015"), new Date("October 21, 2015"),
           new Date("October 24, 2015"),new Date("October 25, 2015"), new Date("November 3, 2015"),
           new Date("November 4, 2015"),new Date("November 29, 2015"), new Date("November 30, 2015")]

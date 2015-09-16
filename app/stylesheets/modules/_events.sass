@@ -1,11 +1,11 @@
 .events-wrap
-  padding-left: 11vw
-  padding-right: 11vw
-  padding-top: 15vh
+  padding-left: 9vw
+  padding-right: 9vw
+  padding-top: 12vh
 
 .events-actors
-  font-size:  3.5vh
-  width:      50vw
+  font-size:  3.8vh
+  width:      58vw
   margin:     0 auto
 
 .events-actor
@@ -14,9 +14,9 @@
   margin-bottom: 0.8vh
 
 .events-actor-image
-  width:            4vw
-  height:           4vw
-  line-height:      4vw
+  width:            5vw
+  height:           5vw
+  line-height:      5vw
   background-size:  cover
   border-radius:    50px
   text-align:       center
@@ -37,9 +37,16 @@
 
   .flexslider
     li
+    &:hover
+      .flex-prev
+        left: -25px
+      .flex-next
+        right: -35px
+
   .event-image
-    height: 23vh
-    background-size: cover
+    height: 25vh
+    background-size: contain
+    background-repeat: round
     &:hover + .event-dates
       display: initial
 
@@ -60,7 +67,7 @@
   position: absolute
   top: 8vh
   left: 1.8vw
-  width: 14vw
+  width: 15vw
   &:hover
     display: initial
 

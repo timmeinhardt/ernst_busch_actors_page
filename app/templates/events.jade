@@ -18,14 +18,13 @@
       min-items="4"
       max-items="4"
       item-width="100"
-      item-margin="-1"
       move="4"
     )
     li
       .event-wrap
         .event-image(back-img='{{event.image}}')
         .event-dates
-          .event-date(ng-repeat="date in event.dates") {{date | date:'dd MMM'}}
+          .event-date(ng-repeat="date in event.dates.slice(1)") {{date | date:'dd MMM'}}
         .event-start {{event.date_start | date:'dd MMM'}}
         a(ng-href="{{event.link}}" ng-class="{'hasLink':event.link}")
           h4.event-name {{event.name}}
